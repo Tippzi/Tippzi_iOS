@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		714050391950B1A400D9283C /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7140503A1950B1A400D9283C /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				7140503F1950B1B100D9283C /* ShellScript */,
+			);
+			dependencies = (
+				7140503E1950B1AC00D9283C /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		710D9EB819507E4D00FA70A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710D9EB719507E4D00FA70A1 /* Foundation.framework */; };
+		710D9ECC19507E4D00FA70A1 /* libOAuthiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 710D9EB419507E4D00FA70A1 /* libOAuthiOS.a */; };
+		710D9EDE19507F1300FA70A1 /* OAuthiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 710D9EBC19507E4D00FA70A1 /* OAuthiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710D9FA519509B2800FA70A1 /* OAuthIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 710D9F9D19509B2800FA70A1 /* OAuthIO.m */; };
+		710D9FA619509B2800FA70A1 /* OAuthIOData.m in Sources */ = {isa = PBXBuildFile; fileRef = 710D9F9F19509B2800FA70A1 /* OAuthIOData.m */; };
+		710D9FA919509B2800FA70A1 /* OAuthIORequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 710D9FA419509B2800FA70A1 /* OAuthIORequest.m */; };
+		710D9FAD19509EC500FA70A1 /* OAuthIORequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 710D9FA319509B2800FA70A1 /* OAuthIORequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710D9FAF19509ED400FA70A1 /* OAuthIOModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 710D9FA019509B2800FA70A1 /* OAuthIOModal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710D9FB019509ED900FA70A1 /* OAuthIOData.h in Headers */ = {isa = PBXBuildFile; fileRef = 710D9F9E19509B2800FA70A1 /* OAuthIOData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710D9FB119509EDE00FA70A1 /* OAuthIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 710D9F9C19509B2800FA70A1 /* OAuthIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		711D496119536185002E37BD /* OAuth.io.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 711D496019536185002E37BD /* OAuth.io.podspec */; };
+		711D4963195361E9002E37BD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 711D4962195361E9002E37BD /* LICENSE */; };
+		714050351950B02A00D9283C /* OAuthIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 710D9F9D19509B2800FA70A1 /* OAuthIO.m */; };
+		714050361950B02A00D9283C /* OAuthIOData.m in Sources */ = {isa = PBXBuildFile; fileRef = 710D9F9F19509B2800FA70A1 /* OAuthIOData.m */; };
+		714050381950B02E00D9283C /* OAuthIORequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 710D9FA419509B2800FA70A1 /* OAuthIORequest.m */; };
+		71B2666B19534F94006826F1 /* OAuthIOModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2666A19534F94006826F1 /* OAuthIOModal.m */; };
+		DF1F19341D9B1121009D0853 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1F19331D9B1121009D0853 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DF1F19361D9B1145009D0853 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1F19351D9B1145009D0853 /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		710D9ECA19507E4D00FA70A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710D9EAC19507E4D00FA70A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 710D9EB319507E4D00FA70A1;
+			remoteInfo = OAuthiOS;
+		};
+		7140503D1950B1AC00D9283C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710D9EAC19507E4D00FA70A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 710D9EB319507E4D00FA70A1;
+			remoteInfo = OAuthiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		710D9EB219507E4D00FA70A1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		710D9EB419507E4D00FA70A1 /* libOAuthiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOAuthiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		710D9EB719507E4D00FA70A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		710D9EBB19507E4D00FA70A1 /* OAuthiOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OAuthiOS-Prefix.pch"; sourceTree = "<group>"; };
+		710D9EBC19507E4D00FA70A1 /* OAuthiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthiOS.h; sourceTree = "<group>"; };
+		710D9EC419507E4D00FA70A1 /* OAuthiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		710D9F9C19509B2800FA70A1 /* OAuthIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthIO.h; sourceTree = "<group>"; };
+		710D9F9D19509B2800FA70A1 /* OAuthIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthIO.m; sourceTree = "<group>"; };
+		710D9F9E19509B2800FA70A1 /* OAuthIOData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthIOData.h; sourceTree = "<group>"; };
+		710D9F9F19509B2800FA70A1 /* OAuthIOData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthIOData.m; sourceTree = "<group>"; };
+		710D9FA019509B2800FA70A1 /* OAuthIOModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthIOModal.h; sourceTree = "<group>"; };
+		710D9FA319509B2800FA70A1 /* OAuthIORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthIORequest.h; sourceTree = "<group>"; };
+		710D9FA419509B2800FA70A1 /* OAuthIORequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthIORequest.m; sourceTree = "<group>"; };
+		711D496019536185002E37BD /* OAuth.io.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OAuth.io.podspec; sourceTree = "<group>"; };
+		711D4962195361E9002E37BD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		71B2666A19534F94006826F1 /* OAuthIOModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthIOModal.m; sourceTree = "<group>"; };
+		71F3011F1950AB9A004515FC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		71F301201950ABA7004515FC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		DF1F19331D9B1121009D0853 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DF1F19351D9B1145009D0853 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		710D9EB119507E4D00FA70A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF1F19361D9B1145009D0853 /* XCTest.framework in Frameworks */,
+				DF1F19341D9B1121009D0853 /* UIKit.framework in Frameworks */,
+				710D9EB819507E4D00FA70A1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710D9EC119507E4D00FA70A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710D9ECC19507E4D00FA70A1 /* libOAuthiOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		710D9EAB19507E4D00FA70A1 = {
+			isa = PBXGroup;
+			children = (
+				711D4962195361E9002E37BD /* LICENSE */,
+				711D496019536185002E37BD /* OAuth.io.podspec */,
+				71F301201950ABA7004515FC /* README.md */,
+				71F3011F1950AB9A004515FC /* .gitignore */,
+				710D9EB919507E4D00FA70A1 /* OAuthiOS */,
+				710D9EB619507E4D00FA70A1 /* Frameworks */,
+				710D9EB519507E4D00FA70A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		710D9EB519507E4D00FA70A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				710D9EB419507E4D00FA70A1 /* libOAuthiOS.a */,
+				710D9EC419507E4D00FA70A1 /* OAuthiOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		710D9EB619507E4D00FA70A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF1F19351D9B1145009D0853 /* XCTest.framework */,
+				DF1F19331D9B1121009D0853 /* UIKit.framework */,
+				710D9EB719507E4D00FA70A1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		710D9EB919507E4D00FA70A1 /* OAuthiOS */ = {
+			isa = PBXGroup;
+			children = (
+				710D9F9B19509B2800FA70A1 /* Src */,
+				710D9EBC19507E4D00FA70A1 /* OAuthiOS.h */,
+				710D9EBA19507E4D00FA70A1 /* Supporting Files */,
+			);
+			path = OAuthiOS;
+			sourceTree = "<group>";
+		};
+		710D9EBA19507E4D00FA70A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				710D9EBB19507E4D00FA70A1 /* OAuthiOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		710D9F9B19509B2800FA70A1 /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				710D9F9C19509B2800FA70A1 /* OAuthIO.h */,
+				710D9F9D19509B2800FA70A1 /* OAuthIO.m */,
+				710D9F9E19509B2800FA70A1 /* OAuthIOData.h */,
+				710D9F9F19509B2800FA70A1 /* OAuthIOData.m */,
+				710D9FA019509B2800FA70A1 /* OAuthIOModal.h */,
+				71B2666A19534F94006826F1 /* OAuthIOModal.m */,
+				710D9FA319509B2800FA70A1 /* OAuthIORequest.h */,
+				710D9FA419509B2800FA70A1 /* OAuthIORequest.m */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		710D9EDD19507F0500FA70A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710D9FAF19509ED400FA70A1 /* OAuthIOModal.h in Headers */,
+				710D9FAD19509EC500FA70A1 /* OAuthIORequest.h in Headers */,
+				710D9FB019509ED900FA70A1 /* OAuthIOData.h in Headers */,
+				710D9FB119509EDE00FA70A1 /* OAuthIO.h in Headers */,
+				710D9EDE19507F1300FA70A1 /* OAuthiOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		710D9EB319507E4D00FA70A1 /* OAuthiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 710D9ED719507E4D00FA70A1 /* Build configuration list for PBXNativeTarget "OAuthiOS" */;
+			buildPhases = (
+				710D9EB019507E4D00FA70A1 /* Sources */,
+				710D9EB119507E4D00FA70A1 /* Frameworks */,
+				710D9EB219507E4D00FA70A1 /* CopyFiles */,
+				710D9EDD19507F0500FA70A1 /* Headers */,
+				710D9FAC19509D8300FA70A1 /* Prepare framework */,
+				71B26673195353CF006826F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OAuthiOS;
+			productName = OAuthiOS;
+			productReference = 710D9EB419507E4D00FA70A1 /* libOAuthiOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		710D9EC319507E4D00FA70A1 /* OAuthiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 710D9EDA19507E4D00FA70A1 /* Build configuration list for PBXNativeTarget "OAuthiOSTests" */;
+			buildPhases = (
+				710D9EC019507E4D00FA70A1 /* Sources */,
+				710D9EC119507E4D00FA70A1 /* Frameworks */,
+				710D9EC219507E4D00FA70A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				710D9ECB19507E4D00FA70A1 /* PBXTargetDependency */,
+			);
+			name = OAuthiOSTests;
+			productName = OAuthiOSTests;
+			productReference = 710D9EC419507E4D00FA70A1 /* OAuthiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		710D9EAC19507E4D00FA70A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = OAuth.io;
+			};
+			buildConfigurationList = 710D9EAF19507E4D00FA70A1 /* Build configuration list for PBXProject "OAuthiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 710D9EAB19507E4D00FA70A1;
+			productRefGroup = 710D9EB519507E4D00FA70A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				710D9EB319507E4D00FA70A1 /* OAuthiOS */,
+				710D9EC319507E4D00FA70A1 /* OAuthiOSTests */,
+				714050391950B1A400D9283C /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		710D9EC219507E4D00FA70A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71B26673195353CF006826F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711D4963195361E9002E37BD /* LICENSE in Resources */,
+				711D496119536185002E37BD /* OAuth.io.podspec in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		710D9FAC19509D8300FA70A1 /* Prepare framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Prepare framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}\"\n\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n";
+		};
+		7140503F1950B1B100D9283C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"./Dist/${RW_FRAMEWORK_NAME}.framework\"\n#\"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		710D9EB019507E4D00FA70A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71B2666B19534F94006826F1 /* OAuthIOModal.m in Sources */,
+				714050381950B02E00D9283C /* OAuthIORequest.m in Sources */,
+				714050351950B02A00D9283C /* OAuthIO.m in Sources */,
+				714050361950B02A00D9283C /* OAuthIOData.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710D9EC019507E4D00FA70A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710D9FA919509B2800FA70A1 /* OAuthIORequest.m in Sources */,
+				710D9FA619509B2800FA70A1 /* OAuthIOData.m in Sources */,
+				710D9FA519509B2800FA70A1 /* OAuthIO.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		710D9ECB19507E4D00FA70A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 710D9EB319507E4D00FA70A1 /* OAuthiOS */;
+			targetProxy = 710D9ECA19507E4D00FA70A1 /* PBXContainerItemProxy */;
+		};
+		7140503E1950B1AC00D9283C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 710D9EB319507E4D00FA70A1 /* OAuthiOS */;
+			targetProxy = 7140503D1950B1AC00D9283C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		710D9ED519507E4D00FA70A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		710D9ED619507E4D00FA70A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		710D9ED819507E4D00FA70A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/OAuthiOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OAuthiOS/OAuthiOS-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/${PROJECT_NAME}";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Debug;
+		};
+		710D9ED919507E4D00FA70A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/OAuthiOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OAuthiOS/OAuthiOS-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/${PROJECT_NAME}";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		710D9EDB19507E4D00FA70A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OAuthiOS/OAuthiOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/usr/include",
+				);
+				INFOPLIST_FILE = "OAuthiOSTests/OAuthiOSTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/antoine/Desktop/iOS,
+					"$(PROJECT_DIR)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/usr/lib/libOCMock.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oauthio.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		710D9EDC19507E4D00FA70A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OAuthiOS/OAuthiOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/usr/include",
+				);
+				INFOPLIST_FILE = "OAuthiOSTests/OAuthiOSTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/antoine/Desktop/iOS,
+					"$(PROJECT_DIR)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/usr/lib/libOCMock.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oauthio.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		7140503B1950B1A400D9283C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7140503C1950B1A400D9283C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		710D9EAF19507E4D00FA70A1 /* Build configuration list for PBXProject "OAuthiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				710D9ED519507E4D00FA70A1 /* Debug */,
+				710D9ED619507E4D00FA70A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		710D9ED719507E4D00FA70A1 /* Build configuration list for PBXNativeTarget "OAuthiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				710D9ED819507E4D00FA70A1 /* Debug */,
+				710D9ED919507E4D00FA70A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		710D9EDA19507E4D00FA70A1 /* Build configuration list for PBXNativeTarget "OAuthiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				710D9EDB19507E4D00FA70A1 /* Debug */,
+				710D9EDC19507E4D00FA70A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7140503A1950B1A400D9283C /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7140503B1950B1A400D9283C /* Debug */,
+				7140503C1950B1A400D9283C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 710D9EAC19507E4D00FA70A1 /* Project object */;
+}
