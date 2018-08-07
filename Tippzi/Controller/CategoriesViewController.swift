@@ -16,7 +16,6 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var headtitle: UILabel!
-    @IBOutlet weak var btnSignOut: UIButton!
     @IBOutlet weak var tableView: UITableView!
     let defaults = UserDefaults.standard
     
@@ -51,7 +50,6 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         self.activeIndicator.isHidden = true
         //font size set
         headtitle.font =  UIFont.boldSystemFont(ofSize: CGFloat(Common.fontsizeModel[0].title_size))
-        btnSignOut.titleLabel?.font =  UIFont.boldSystemFont(ofSize: CGFloat(Common.fontsizeModel[0].sub_button_size))
         //tableview
         tableView.delegate = self
         tableView.dataSource = self
@@ -285,25 +283,6 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         self.activeIndicator.isHidden = false
         self.activeIndicator.startAnimating()
         
-    }
-    
-    @IBAction func btnSignOutClick(_ sender: Any) {
-        
-        self.defaults.set("", forKey: "user_type")
-        self.defaults.set("", forKey: "user_id")
-        //        Common.flagofMapViewbyCategory = ""
-        GPPSignIn.sharedInstance().signOut()
-        //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "SigninView")
-        
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
     }
 }
 

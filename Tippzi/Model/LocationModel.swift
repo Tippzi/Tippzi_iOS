@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSONJoy
 
 struct LocationModel {
     var index_num : Int = 0
@@ -30,4 +31,23 @@ struct SelectCategoryDeal {
 struct SearchModel {
     var is_bar_name : Bool = false
     var name : String = ""
+}
+
+struct TippziCoinModel {
+    var id: Int = 0
+    var latitude: String = "0"
+    var longitude: String = "0"
+    var group: String = "0"
+    var token: String = ""
+    var status: Int = 0
+    
+    init(_ decoder: JSONLoader) throws {
+        print(decoder)
+        id = try decoder["id"].get()
+        latitude = try decoder["latitude"].get()
+        longitude = try decoder["longitude"].get()
+        group = try decoder["group"].get()
+        token = try decoder["token"].get()
+        status = try decoder["status"].get()
+    }
 }

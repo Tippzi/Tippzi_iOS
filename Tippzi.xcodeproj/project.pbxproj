@@ -236,6 +236,11 @@
 		84FDDF47203809F700DDD094 /* ico_yellow_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FDDF44203809F600DDD094 /* ico_yellow_icon.png */; };
 		84FE2F9F1FB16EFE00FACE75 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2F9E1FB16EFE00FACE75 /* SigninViewController.swift */; };
 		84FE2FA11FB174A300FACE75 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2FA01FB174A300FACE75 /* CreateAccountViewController.swift */; };
+		D87F1EC7211A24C000877986 /* TippziGoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87F1EC3211A24BF00877986 /* TippziGoMapViewController.swift */; };
+		D87F1EC9211A52B600877986 /* coin_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1EC8211A52B000877986 /* coin_mark.png */; };
+		D87F1ECB211A5AC300877986 /* img_tippzi_coin.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */; };
+		D87F1ECD211A5BAF00877986 /* btn_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECC211A5BA900877986 /* btn_camera.png */; };
+		D87F1ECF211A5E7900877986 /* btn_my_location.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECE211A5E7400877986 /* btn_my_location.png */; };
 		D8A801802118CCC00055789C /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8017C2118CCBF0055789C /* SearchTextField.swift */; };
 		D8A801872118ED080055789C /* img_find_deal.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A801812118ECDF0055789C /* img_find_deal.png */; };
 		D8A801882118ED080055789C /* img_round_tippzi.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A801822118ECEB0055789C /* img_round_tippzi.png */; };
@@ -529,6 +534,11 @@
 		84FE2FA01FB174A300FACE75 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateAccountViewController.swift; path = Controller/CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AF13C3808E8E9B0BE7B097AD /* Pods_Tippzi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tippzi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00874461A3BDDE1B890340F /* Pods-Tippzi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tippzi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tippzi/Pods-Tippzi.debug.xcconfig"; sourceTree = "<group>"; };
+		D87F1EC3211A24BF00877986 /* TippziGoMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TippziGoMapViewController.swift; path = Controller/TippziGoMapViewController.swift; sourceTree = "<group>"; };
+		D87F1EC8211A52B000877986 /* coin_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin_mark.png; path = Images/coin_mark.png; sourceTree = "<group>"; };
+		D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_tippzi_coin.png; path = Images/img_tippzi_coin.png; sourceTree = "<group>"; };
+		D87F1ECC211A5BA900877986 /* btn_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_camera.png; path = Images/btn_camera.png; sourceTree = "<group>"; };
+		D87F1ECE211A5E7400877986 /* btn_my_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_my_location.png; path = Images/btn_my_location.png; sourceTree = "<group>"; };
 		D8A8017C2118CCBF0055789C /* SearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTextField.swift; path = Custom/SearchTextField.swift; sourceTree = "<group>"; };
 		D8A801812118ECDF0055789C /* img_find_deal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_find_deal.png; path = Images/img_find_deal.png; sourceTree = "<group>"; };
 		D8A801822118ECEB0055789C /* img_round_tippzi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_round_tippzi.png; path = Images/img_round_tippzi.png; sourceTree = "<group>"; };
@@ -660,6 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				D8A8018D21190FC60055789C /* MainCategoryViewController.swift */,
+				D87F1EC3211A24BF00877986 /* TippziGoMapViewController.swift */,
 				84AF87541FCF2E2B000AA967 /* BusinessBarDetailViewController.swift */,
 				84AF87551FCF2E2B000AA967 /* BusinessMapViewController.swift */,
 				84AF874A1FCEBD1D000AA967 /* CustomerMapViewController.swift */,
@@ -702,6 +713,10 @@
 		840001791FAB016B00C19E8D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D87F1ECE211A5E7400877986 /* btn_my_location.png */,
+				D87F1ECC211A5BA900877986 /* btn_camera.png */,
+				D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */,
+				D87F1EC8211A52B000877986 /* coin_mark.png */,
 				D8A8019621196A2C0055789C /* 2 2.gif */,
 				D8A8019721196A3C0055789C /* ico_add_deal2.png */,
 				D8A8019221196A160055789C /* ico_area.png */,
@@ -1132,6 +1147,7 @@
 				84770EC51FDEF84F00328B34 /* ima_pattern.jpg in Resources */,
 				84BA291920215FEB000697C7 /* ico_selected_location_category1.png in Resources */,
 				8400017F1FAB02E800C19E8D /* img_main_background.jpg in Resources */,
+				D87F1ECD211A5BAF00877986 /* btn_camera.png in Resources */,
 				8400017E1FAB02E800C19E8D /* ico_tippzi.png in Resources */,
 				849594F21FF1A879009D0538 /* category1.png in Resources */,
 				84714A091FB059A000FE58A3 /* ico_close_hint.png in Resources */,
@@ -1156,6 +1172,7 @@
 				84714A231FB059A000FE58A3 /* img_main_background 2.jpg in Resources */,
 				8463C75F200FFDC60013161A /* ico_hair_search.jpg in Resources */,
 				84D4DA2A1FE4A5740024730E /* GPPShareActivity@2x~iphone.png in Resources */,
+				D87F1ECF211A5E7900877986 /* btn_my_location.png in Resources */,
 				84F3D5A81FF3DF4300A286E7 /* ico_app_logo.png in Resources */,
 				84714A191FB059A000FE58A3 /* ico_ticket_active.png in Resources */,
 				845039A91FC1CF25009DDCE3 /* CVDashboard.xib in Resources */,
@@ -1202,6 +1219,7 @@
 				D8A8019821196A4E0055789C /* ico_twitter2.png in Resources */,
 				84BE17F32015DC6300C1B4C2 /* ico_area.png in Resources */,
 				84FA9D4B1FE8882D00C0EB59 /* ico_close_search.png in Resources */,
+				D87F1ECB211A5AC300877986 /* img_tippzi_coin.png in Resources */,
 				84714A251FB059A000FE58A3 /* img_purple_curve_small 2.jpg in Resources */,
 				84901C6D1FD205FE00E88CBB /* ico_my_location.png in Resources */,
 				84ED96C01FAB3FB800F9A58F /* img_purple_curve_large.jpg in Resources */,
@@ -1209,6 +1227,7 @@
 				D8A801872118ED080055789C /* img_find_deal.png in Resources */,
 				845317111FE7A2DB001537FE /* TwitterShareExtensionUIResources.bundle in Resources */,
 				849594FA1FF26CFC009D0538 /* ico_ticket_button1.png in Resources */,
+				D87F1EC9211A52B600877986 /* coin_mark.png in Resources */,
 				84FA9D5D1FEAA07A00C0EB59 /* ico_close_category.png in Resources */,
 				84D4DA291FE4A5740024730E /* GPPShareActivity@2x.png in Resources */,
 				84714A261FB059A000FE58A3 /* img_test.png in Resources */,
@@ -1408,6 +1427,7 @@
 				84F9E3321FB4B0BA008DD808 /* AddressItemCellTableViewCell.swift in Sources */,
 				846FCAB01FD6B892000E7881 /* UIBorderedLabel.swift in Sources */,
 				845039B81FC2CD0D009DDCE3 /* BusinessSignUpModel.swift in Sources */,
+				D87F1EC7211A24C000877986 /* TippziGoMapViewController.swift in Sources */,
 				84AFBDBB1FD93F3F00638785 /* PickerView.swift in Sources */,
 				847A8C721FB1E43800F63040 /* EditBusinessProfile4ViewController.swift in Sources */,
 				84608C721FCDCC6900D672A7 /* ClaimAlertViewController.swift in Sources */,
