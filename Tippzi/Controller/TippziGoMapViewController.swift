@@ -140,7 +140,7 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        Common.Coordinate = CLLocationCoordinate2D(latitude: 51.508742, longitude:-0.120850 )
+//        Common.Coordinate = CLLocationCoordinate2D(latitude: 51.508742, longitude:-0.120850 )
         get_around_coins()
         
         self.locationTracker.addLocationChangeObserver { (result) -> () in
@@ -162,7 +162,7 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
         googleMapView.delegate = self
         let camera = GMSCameraPosition.camera(withLatitude: Common.Coordinate.latitude,
                                               longitude: Common.Coordinate.longitude,
-                                              zoom: 19)
+                                              zoom: 18)
         
         googleMapView.isMyLocationEnabled = true
         googleMapView.settings.compassButton = true
@@ -181,11 +181,12 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
         }
     }
     @IBAction func gotoTippziGoGame(_ sender: Any) {
+        
     }
     @IBAction func gotoMyLocation(_ sender: Any) {
         let camera = GMSCameraPosition.camera(withLatitude: Common.Coordinate.latitude,
                                               longitude: Common.Coordinate.longitude,
-                                              zoom: 19)
+                                              zoom: 18)
         googleMapView.camera = camera
     }
 }
