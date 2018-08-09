@@ -21,13 +21,10 @@ class MainCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         btnSignOut.titleLabel?.font =  UIFont.boldSystemFont(ofSize: CGFloat(Common.fontsizeModel[0].sub_button_size))
-
     }
     
     @IBAction func btnSignOutClick(_ sender: Any) {
-        
         self.defaults.set("", forKey: "user_type")
         self.defaults.set("", forKey: "user_id")
         //        Common.flagofMapViewbyCategory = ""
@@ -141,6 +138,8 @@ class MainCategoryViewController: UIViewController {
         }
     }
     @IBAction func dealCategoryAction(_ sender: Any) {
+        return
+        
         let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesView")
         
         let transition = CATransition()
@@ -153,15 +152,7 @@ class MainCategoryViewController: UIViewController {
         self.present(toViewController!, animated: true, completion:nil)
     }
     @IBAction func tippziGoAction(_ sender: Any) {
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "TippziGoMapViewController")
-        
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "TakeBreakViewController")
+        self.navigationController?.pushViewController(toViewController!, animated: true)
     }
 }

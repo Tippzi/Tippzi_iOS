@@ -42,12 +42,19 @@ struct TippziCoinModel {
     var status: Int = 0
     
     init(_ decoder: JSONLoader) throws {
-        print(decoder)
         id = try decoder["id"].get()
         latitude = try decoder["latitude"].get()
         longitude = try decoder["longitude"].get()
         group = try decoder["group"].get()
         token = try decoder["token"].get()
         status = try decoder["status"].get()
+    }
+}
+
+struct TippziCoinCountModel {
+    var count: Int = 0
+    
+    init(_ decoder: JSONLoader) throws {
+        count = try decoder["coinct"].get()
     }
 }

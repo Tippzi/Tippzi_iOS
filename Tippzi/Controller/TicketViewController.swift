@@ -486,17 +486,19 @@ class TicketViewController: UIViewController {
         if (Common.check_wallet == true) {
             
             //transition effect
-            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView")
-            
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
-
+//            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView")
+//
+//            let transition = CATransition()
+//            transition.type = kCATransitionPush
+//            transition.subtype = kCATransitionFromRight
+//            transition.duration = 0.5
+//            view.window!.layer.add(transition, forKey: kCATransition)
+//            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//            self.present(toViewController!, animated: true, completion:nil)
+            self.dismiss(animated: true) {
+                
+            }
         } else {
             
             //transition effect
@@ -521,17 +523,19 @@ class TicketViewController: UIViewController {
         if (Common.check_wallet == true) {
             
             //transition effect
-            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView")
-            
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
-            
+//            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView")
+//
+//            let transition = CATransition()
+//            transition.type = kCATransitionPush
+//            transition.subtype = kCATransitionFromRight
+//            transition.duration = 0.5
+//            view.window!.layer.add(transition, forKey: kCATransition)
+//            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//            self.present(toViewController!, animated: true, completion:nil)
+            self.dismiss(animated: true) {
+                
+            }
         } else {
             
             //transition effect
@@ -580,16 +584,19 @@ class TicketViewController: UIViewController {
         timer.invalidate()
         
         //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView")
-        
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+//        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView")
+//
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromRight
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
+        self.dismiss(animated: true) {
+            
+        }
     }
     
     @IBAction func btnClaimClick(_ sender: Any) {

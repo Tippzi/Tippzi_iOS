@@ -96,8 +96,10 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
             for index in 0...Common.customerModel.wallets.count-1 {
                 
                 if Common.customerModel.wallets[index].claimed_check == "false" {
-                    if Common.customerModel.wallets[index].category != Common.category_name {
-                        continue
+                    if (Common.category_name != "All") {
+                        if Common.customerModel.wallets[index].category != Common.category_name {
+                            continue
+                        }
                     }
                     
                     arrayOfArray += [WalletListModel(Common.customerModel.wallets[index].bar_id!,

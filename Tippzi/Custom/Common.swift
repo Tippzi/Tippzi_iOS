@@ -145,5 +145,14 @@ extension String {
             return nil
         }
     }
-    
+}
+
+extension UIView {
+    func setViewBorderStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        if (cornerRadius > 0) {
+            self.layer.cornerRadius = cornerRadius
+        }
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+    }
 }

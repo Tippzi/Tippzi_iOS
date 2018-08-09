@@ -236,7 +236,6 @@
 		84FDDF47203809F700DDD094 /* ico_yellow_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FDDF44203809F600DDD094 /* ico_yellow_icon.png */; };
 		84FE2F9F1FB16EFE00FACE75 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2F9E1FB16EFE00FACE75 /* SigninViewController.swift */; };
 		84FE2FA11FB174A300FACE75 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2FA01FB174A300FACE75 /* CreateAccountViewController.swift */; };
-		D87F1EC7211A24C000877986 /* TippziGoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87F1EC3211A24BF00877986 /* TippziGoMapViewController.swift */; };
 		D87F1EC9211A52B600877986 /* coin_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1EC8211A52B000877986 /* coin_mark.png */; };
 		D87F1ECB211A5AC300877986 /* img_tippzi_coin.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */; };
 		D87F1ECD211A5BAF00877986 /* btn_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECC211A5BA900877986 /* btn_camera.png */; };
@@ -248,7 +247,6 @@
 		D8A8018A2118ED080055789C /* ico_tippzi_go.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A801842118ECFA0055789C /* ico_tippzi_go.png */; };
 		D8A8018B2118ED080055789C /* ico_tippzi_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A801852118ED000055789C /* ico_tippzi_mark.png */; };
 		D8A8018C2118ED080055789C /* img_coming_soon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A801862118ED010055789C /* img_coming_soon.png */; };
-		D8A8018E21190FC70055789C /* MainCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8018D21190FC60055789C /* MainCategoryViewController.swift */; };
 		D8A8019821196A4E0055789C /* ico_twitter2.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A8018F211969FF0055789C /* ico_twitter2.png */; };
 		D8A8019921196A4E0055789C /* icon_service.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A8019021196A010055789C /* icon_service.png */; };
 		D8A8019A21196A4F0055789C /* ico_back2.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A8019121196A030055789C /* ico_back2.png */; };
@@ -258,6 +256,19 @@
 		D8A8019E21196A4F0055789C /* icon_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A8019521196A290055789C /* icon_bar.png */; };
 		D8A8019F21196A4F0055789C /* 2 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8A8019621196A2C0055789C /* 2 2.gif */; };
 		D8A801A021196A4F0055789C /* ico_add_deal2.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A8019721196A3C0055789C /* ico_add_deal2.png */; };
+		D8F9BBAB211C0D3A00F57556 /* img_bottom_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F9BBA4211C0D2D00F57556 /* img_bottom_bar.png */; };
+		D8F9BBAC211C0D3A00F57556 /* btn_close_white.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F9BBA8211C0D2E00F57556 /* btn_close_white.png */; };
+		D8F9BBAD211C0D3A00F57556 /* img_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F9BBA9211C0D3500F57556 /* img_shadow.png */; };
+		D8F9BBAE211C0D3A00F57556 /* bg_tippzi_coin.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F9BBAA211C0D3600F57556 /* bg_tippzi_coin.png */; };
+		D8F9BBB0211C15F600F57556 /* img_bottom_bar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F9BBAF211C15F100F57556 /* img_bottom_bar_1.png */; };
+		D8F9BBB2211C19D300F57556 /* img_tippzi_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F9BBB1211C19CE00F57556 /* img_tippzi_mark.png */; };
+		D8F9BBB9211C1E6C00F57556 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9BBB4211C1E6B00F57556 /* WalletViewController.swift */; };
+		D8F9BBBA211C1E6C00F57556 /* TippziGoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9BBB5211C1E6B00F57556 /* TippziGoMapViewController.swift */; };
+		D8F9BBBB211C1E6C00F57556 /* MainCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9BBB6211C1E6C00F57556 /* MainCategoryViewController.swift */; };
+		D8F9BBBC211C1E6C00F57556 /* LetPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9BBB7211C1E6C00F57556 /* LetPlayViewController.swift */; };
+		D8F9BBBD211C1E6C00F57556 /* CollectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9BBB8211C1E6C00F57556 /* CollectedViewController.swift */; };
+		D8F9BBC0211C3CF200F57556 /* TakeBreakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9BBBE211C3CF100F57556 /* TakeBreakViewController.swift */; };
+		D8F9BBC1211C3CF200F57556 /* HuntResponsiblyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9BBBF211C3CF200F57556 /* HuntResponsiblyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -534,7 +545,6 @@
 		84FE2FA01FB174A300FACE75 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateAccountViewController.swift; path = Controller/CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AF13C3808E8E9B0BE7B097AD /* Pods_Tippzi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tippzi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00874461A3BDDE1B890340F /* Pods-Tippzi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tippzi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tippzi/Pods-Tippzi.debug.xcconfig"; sourceTree = "<group>"; };
-		D87F1EC3211A24BF00877986 /* TippziGoMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TippziGoMapViewController.swift; path = Controller/TippziGoMapViewController.swift; sourceTree = "<group>"; };
 		D87F1EC8211A52B000877986 /* coin_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin_mark.png; path = Images/coin_mark.png; sourceTree = "<group>"; };
 		D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_tippzi_coin.png; path = Images/img_tippzi_coin.png; sourceTree = "<group>"; };
 		D87F1ECC211A5BA900877986 /* btn_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_camera.png; path = Images/btn_camera.png; sourceTree = "<group>"; };
@@ -546,7 +556,6 @@
 		D8A801842118ECFA0055789C /* ico_tippzi_go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_tippzi_go.png; path = Images/ico_tippzi_go.png; sourceTree = "<group>"; };
 		D8A801852118ED000055789C /* ico_tippzi_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_tippzi_mark.png; path = Images/ico_tippzi_mark.png; sourceTree = "<group>"; };
 		D8A801862118ED010055789C /* img_coming_soon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_coming_soon.png; path = Images/img_coming_soon.png; sourceTree = "<group>"; };
-		D8A8018D21190FC60055789C /* MainCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCategoryViewController.swift; path = Controller/MainCategoryViewController.swift; sourceTree = "<group>"; };
 		D8A8018F211969FF0055789C /* ico_twitter2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_twitter2.png; path = Images/ico_twitter2.png; sourceTree = "<group>"; };
 		D8A8019021196A010055789C /* icon_service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_service.png; path = Images/icon_service.png; sourceTree = "<group>"; };
 		D8A8019121196A030055789C /* ico_back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_back2.png; path = Images/ico_back2.png; sourceTree = "<group>"; };
@@ -556,6 +565,19 @@
 		D8A8019521196A290055789C /* icon_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_bar.png; path = Images/icon_bar.png; sourceTree = "<group>"; };
 		D8A8019621196A2C0055789C /* 2 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "2 2.gif"; path = "Images/2 2.gif"; sourceTree = "<group>"; };
 		D8A8019721196A3C0055789C /* ico_add_deal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_add_deal2.png; path = Images/ico_add_deal2.png; sourceTree = "<group>"; };
+		D8F9BBA4211C0D2D00F57556 /* img_bottom_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_bottom_bar.png; path = Images/img_bottom_bar.png; sourceTree = "<group>"; };
+		D8F9BBA8211C0D2E00F57556 /* btn_close_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_close_white.png; path = Images/btn_close_white.png; sourceTree = "<group>"; };
+		D8F9BBA9211C0D3500F57556 /* img_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_shadow.png; path = Images/img_shadow.png; sourceTree = "<group>"; };
+		D8F9BBAA211C0D3600F57556 /* bg_tippzi_coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_tippzi_coin.png; path = Images/bg_tippzi_coin.png; sourceTree = "<group>"; };
+		D8F9BBAF211C15F100F57556 /* img_bottom_bar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_bottom_bar_1.png; path = Images/img_bottom_bar_1.png; sourceTree = "<group>"; };
+		D8F9BBB1211C19CE00F57556 /* img_tippzi_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_tippzi_mark.png; path = Images/img_tippzi_mark.png; sourceTree = "<group>"; };
+		D8F9BBB4211C1E6B00F57556 /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalletViewController.swift; path = Controller/TippziGo/WalletViewController.swift; sourceTree = "<group>"; };
+		D8F9BBB5211C1E6B00F57556 /* TippziGoMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TippziGoMapViewController.swift; path = Controller/TippziGo/TippziGoMapViewController.swift; sourceTree = "<group>"; };
+		D8F9BBB6211C1E6C00F57556 /* MainCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCategoryViewController.swift; path = Controller/TippziGo/MainCategoryViewController.swift; sourceTree = "<group>"; };
+		D8F9BBB7211C1E6C00F57556 /* LetPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LetPlayViewController.swift; path = Controller/TippziGo/LetPlayViewController.swift; sourceTree = "<group>"; };
+		D8F9BBB8211C1E6C00F57556 /* CollectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectedViewController.swift; path = Controller/TippziGo/CollectedViewController.swift; sourceTree = "<group>"; };
+		D8F9BBBE211C3CF100F57556 /* TakeBreakViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeBreakViewController.swift; path = Controller/TippziGo/TakeBreakViewController.swift; sourceTree = "<group>"; };
+		D8F9BBBF211C3CF200F57556 /* HuntResponsiblyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuntResponsiblyViewController.swift; path = Controller/TippziGo/HuntResponsiblyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -669,8 +691,7 @@
 		840001781FAB002500C19E8D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D8A8018D21190FC60055789C /* MainCategoryViewController.swift */,
-				D87F1EC3211A24BF00877986 /* TippziGoMapViewController.swift */,
+				D8F9BBB3211C1E4A00F57556 /* TippziGo */,
 				84AF87541FCF2E2B000AA967 /* BusinessBarDetailViewController.swift */,
 				84AF87551FCF2E2B000AA967 /* BusinessMapViewController.swift */,
 				84AF874A1FCEBD1D000AA967 /* CustomerMapViewController.swift */,
@@ -713,6 +734,12 @@
 		840001791FAB016B00C19E8D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D8F9BBB1211C19CE00F57556 /* img_tippzi_mark.png */,
+				D8F9BBAF211C15F100F57556 /* img_bottom_bar_1.png */,
+				D8F9BBAA211C0D3600F57556 /* bg_tippzi_coin.png */,
+				D8F9BBA8211C0D2E00F57556 /* btn_close_white.png */,
+				D8F9BBA4211C0D2D00F57556 /* img_bottom_bar.png */,
+				D8F9BBA9211C0D3500F57556 /* img_shadow.png */,
 				D87F1ECE211A5E7400877986 /* btn_my_location.png */,
 				D87F1ECC211A5BA900877986 /* btn_camera.png */,
 				D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */,
@@ -1008,6 +1035,20 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		D8F9BBB3211C1E4A00F57556 /* TippziGo */ = {
+			isa = PBXGroup;
+			children = (
+				D8F9BBB6211C1E6C00F57556 /* MainCategoryViewController.swift */,
+				D8F9BBBE211C3CF100F57556 /* TakeBreakViewController.swift */,
+				D8F9BBBF211C3CF200F57556 /* HuntResponsiblyViewController.swift */,
+				D8F9BBB5211C1E6B00F57556 /* TippziGoMapViewController.swift */,
+				D8F9BBB7211C1E6C00F57556 /* LetPlayViewController.swift */,
+				D8F9BBB8211C1E6C00F57556 /* CollectedViewController.swift */,
+				D8F9BBB4211C1E6B00F57556 /* WalletViewController.swift */,
+			);
+			name = TippziGo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1186,6 +1227,7 @@
 				84D9C1821FAB2BF800CEB396 /* ico_back.png in Resources */,
 				D8A8019D21196A4F0055789C /* ico_google 2.png in Resources */,
 				84FA9D491FE8865E00C0EB59 /* ico_email.png in Resources */,
+				D8F9BBAC211C0D3A00F57556 /* btn_close_white.png in Resources */,
 				84608C7E1FCDEA3E00D672A7 /* MapInfoWindowView.xib in Resources */,
 				84FA9D6C1FEAC6FE00C0EB59 /* ico_uncheck.png in Resources */,
 				D8A801892118ED080055789C /* img_find_venue.png in Resources */,
@@ -1193,6 +1235,8 @@
 				849594F61FF1A897009D0538 /* ico_ticket_active_category2.png in Resources */,
 				84714A181FB059A000FE58A3 /* ico_sign_out.png in Resources */,
 				84714A291FB059A000FE58A3 /* img_tutorial3.jpg in Resources */,
+				D8F9BBAE211C0D3A00F57556 /* bg_tippzi_coin.png in Resources */,
+				D8F9BBB2211C19D300F57556 /* img_tippzi_mark.png in Resources */,
 				8404889920039CE2003669B7 /* ico_Nightlife.jpg in Resources */,
 				84E706F31FBBDBFA0054D8B6 /* Info.plist in Resources */,
 				840E316E1FFB320500C1351C /* GoogleService-Info.plist in Resources */,
@@ -1207,6 +1251,7 @@
 				84E706EB1FB9E78E0054D8B6 /* icon_dot_line.jpg in Resources */,
 				84714A1D1FB059A000FE58A3 /* ico_unselected_location.png in Resources */,
 				84CB36721FE63A6D00E15553 /* WalletItemView.xib in Resources */,
+				D8F9BBAB211C0D3A00F57556 /* img_bottom_bar.png in Resources */,
 				847AC5B91FB583C400FC7477 /* 1.gif in Resources */,
 				84CB36701FE62B4E00E15553 /* DashItemView.xib in Resources */,
 				84770EC41FDEF84F00328B34 /* ico_ticket_bar_2.png in Resources */,
@@ -1222,6 +1267,7 @@
 				D87F1ECB211A5AC300877986 /* img_tippzi_coin.png in Resources */,
 				84714A251FB059A000FE58A3 /* img_purple_curve_small 2.jpg in Resources */,
 				84901C6D1FD205FE00E88CBB /* ico_my_location.png in Resources */,
+				D8F9BBB0211C15F600F57556 /* img_bottom_bar_1.png in Resources */,
 				84ED96C01FAB3FB800F9A58F /* img_purple_curve_large.jpg in Resources */,
 				849594F01FF1A879009D0538 /* category2.png in Resources */,
 				D8A801872118ED080055789C /* img_find_deal.png in Resources */,
@@ -1230,6 +1276,7 @@
 				D87F1EC9211A52B600877986 /* coin_mark.png in Resources */,
 				84FA9D5D1FEAA07A00C0EB59 /* ico_close_category.png in Resources */,
 				84D4DA291FE4A5740024730E /* GPPShareActivity@2x.png in Resources */,
+				D8F9BBAD211C0D3A00F57556 /* img_shadow.png in Resources */,
 				84714A261FB059A000FE58A3 /* img_test.png in Resources */,
 				84D4DA2F1FE4A5870024730E /* metadata in Resources */,
 				8463C760200FFDC60013161A /* ico_nightlife_search.jpg in Resources */,
@@ -1362,6 +1409,7 @@
 				84F9E3251FB43CDC008DD808 /* AddDealViewController.swift in Sources */,
 				848D85C71FF0CEDD00E860DD /* GenderViewController.swift in Sources */,
 				84770EB61FDDA9BE00328B34 /* UITextFieldLimit.m in Sources */,
+				D8F9BBBC211C1E6C00F57556 /* LetPlayViewController.swift in Sources */,
 				840E57661FFC0110004C84D4 /* DetailInfoWindow_small.swift in Sources */,
 				8446FA721FD1F7AB007A05A0 /* RouteViewController.swift in Sources */,
 				84E706E21FB992170054D8B6 /* DealItemViewCell.swift in Sources */,
@@ -1381,6 +1429,7 @@
 				848D85D21FF1006900E860DD /* BusinessCategoryViewController.swift in Sources */,
 				847A8C6C1FB1E3F500F63040 /* EditBusinessProfile1ViewController.swift in Sources */,
 				84751D621FC36B4E00654B01 /* WalletListModel.swift in Sources */,
+				D8F9BBB9211C1E6C00F57556 /* WalletViewController.swift in Sources */,
 				84A856D91FD480EC00351112 /* SwiftyAvatar.swift in Sources */,
 				84608C7D1FCDEA3E00D672A7 /* MapInfoWindow.swift in Sources */,
 				847A8C701FB1E42500F63040 /* EditBusinessProfile3ViewController.swift in Sources */,
@@ -1406,17 +1455,20 @@
 				845F2E181FC0534E005B296C /* TicketViewController.swift in Sources */,
 				8471AF7F1FB89F8D002E3351 /* EditBarModel .swift in Sources */,
 				84FA9D5B1FEA9E6B00C0EB59 /* CategoriesViewController.swift in Sources */,
+				D8F9BBBB211C1E6C00F57556 /* MainCategoryViewController.swift in Sources */,
 				84BA6D56207655F7002BD694 /* TermsAndConditionsViewController.swift in Sources */,
 				845039AB1FC1E706009DDCE3 /* AddWalletViewController.swift in Sources */,
 				84FE2F9F1FB16EFE00FACE75 /* SigninViewController.swift in Sources */,
 				845F2DD31FBF79C0005B296C /* Tutorial1ViewController.swift in Sources */,
 				84608C7A1FCDEA3E00D672A7 /* CU_CardView.swift in Sources */,
-				D8A8018E21190FC70055789C /* MainCategoryViewController.swift in Sources */,
 				84AF87511FCF2DF0000AA967 /* HWSwiftyViewPager.swift in Sources */,
+				D8F9BBC0211C3CF200F57556 /* TakeBreakViewController.swift in Sources */,
 				847A8C781FB1E48B00F63040 /* Tutorial3ViewController.swift in Sources */,
 				843278EB1FB3728C000EC83C /* JLToastWindow.swift in Sources */,
 				8486CF3F1FB847670047C2F8 /* OpenHourModel.swift in Sources */,
+				D8F9BBBD211C1E6C00F57556 /* CollectedViewController.swift in Sources */,
 				845039BA1FC2CD41009DDCE3 /* CustomerModel.swift in Sources */,
+				D8F9BBC1211C3CF200F57556 /* HuntResponsiblyViewController.swift in Sources */,
 				84F9E32F1FB4B026008DD808 /* AddressSearchViewController.swift in Sources */,
 				D8A801802118CCC00055789C /* SearchTextField.swift in Sources */,
 				84F9E33B1FB55C80008DD808 /* DateViewController.swift in Sources */,
@@ -1427,7 +1479,7 @@
 				84F9E3321FB4B0BA008DD808 /* AddressItemCellTableViewCell.swift in Sources */,
 				846FCAB01FD6B892000E7881 /* UIBorderedLabel.swift in Sources */,
 				845039B81FC2CD0D009DDCE3 /* BusinessSignUpModel.swift in Sources */,
-				D87F1EC7211A24C000877986 /* TippziGoMapViewController.swift in Sources */,
+				D8F9BBBA211C1E6C00F57556 /* TippziGoMapViewController.swift in Sources */,
 				84AFBDBB1FD93F3F00638785 /* PickerView.swift in Sources */,
 				847A8C721FB1E43800F63040 /* EditBusinessProfile4ViewController.swift in Sources */,
 				84608C721FCDCC6900D672A7 /* ClaimAlertViewController.swift in Sources */,

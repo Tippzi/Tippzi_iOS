@@ -11,16 +11,15 @@ import SwiftHTTP
 import JSONJoy
 import CoreLocation
 
-class AddWalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var headtitle: UILabel!
     @IBOutlet weak var myDealCount: UILabel!
     
-    @IBOutlet weak var coinCount: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var coinCount: UILabel!
     
     var cell : CustomerDealItemViewCell? = nil
     let cellSpacingHeight: CGFloat = 10
@@ -52,13 +51,7 @@ class AddWalletViewController: UIViewController, UITableViewDelegate, UITableVie
             
             for index in 0...Common.customerModel.wallets.count-1 {
             
-                if Common.customerModel.wallets[index].claimed_check == "false" {
-                    if (Common.category_name != "All") {
-                        if Common.customerModel.wallets[index].category != Common.category_name {
-                            continue
-                        }
-                    }
-                    
+                if Common.customerModel.wallets[index].claimed_check == "false" {                    
                     arrayOfArray += [WalletListModel(Common.customerModel.wallets[index].bar_id!,
                                                      Common.customerModel.wallets[index].deal_id!,
                                                      Common.customerModel.wallets[index].title!,
@@ -80,35 +73,7 @@ class AddWalletViewController: UIViewController, UITableViewDelegate, UITableVie
         //
         myDealCount.text = "My deals (" + String(arrayOfArray.count) + ")"
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        self.get_tippzi_coin_count()
-    }
-    func get_tippzi_coin_count()
-    {
-        let url = Common.host + "api/coin/get_coin_count"
-        let params = ["customer":Common.customerModel.user_id!] as [String : Any]
-        do {
-            let opt = try HTTP.POST(url, parameters: params)
-            opt?.run { response in
-                if let error = response.error {
-                    return
-                }
-                do {
-                    let decoder: JSONLoader = JSONLoader(response.text!)
-                    let coinCount = try TippziCoinCountModel(decoder)
-                    
-                    DispatchQueue.main.sync(execute: {
-                        self.coinCount.text = String(describing: coinCount.count)
-                    })
-                } catch {
-                }
-            }
-        } catch let error {
-        }
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -133,6 +98,35 @@ class AddWalletViewController: UIViewController, UITableViewDelegate, UITableVie
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.get_tippzi_coin_count()
+    }
+    func get_tippzi_coin_count()
+    {
+        let url = Common.host + "api/coin/get_coin_count"
+        let params = ["customer":Common.customerModel.user_id!] as [String : Any]
+        do {
+            let opt = try HTTP.POST(url, parameters: params)
+            opt?.run { response in
+                if let error = response.error {
+                    return
+                }
+                do {
+                    let decoder: JSONLoader = JSONLoader(response.text!)
+                    let coinCount = try TippziCoinCountModel(decoder)
+
+                    DispatchQueue.main.sync(execute: {
+                        self.coinCount.text = String(describing: coinCount.count)
+                    })
+                } catch {
+                }
+            }
+        } catch let error {
+        }
     }
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -239,22 +233,6 @@ class AddWalletViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func btnBackClick(_ sender: Any) {
-    
-        
-        Common.check_wallet = false
-        Common.from_claimdeal = false
-        //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
-        
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
-
+        self.navigationController?.popViewController(animated: true)
     }
-    
 }
