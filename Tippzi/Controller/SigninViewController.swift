@@ -55,10 +55,6 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
     
     var decoder : JSONLoader!
     var user_type : String?
-    //Timer format
-    var timer:Timer = Timer()
-    var flag:Bool = false
-    
     var message : String = ""
     
     var button_width : CGFloat = 0
@@ -132,8 +128,6 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
             twitterBtn.frame = CGRect.init(x: twitterBtn.frame.origin.x, y: twitterBtn.frame.origin.y, width: button_width, height: button_height)
             googleBtn.frame = CGRect.init(x: googleBtn.frame.origin.x, y: googleBtn.frame.origin.y, width: button_width, height: button_height)
         }
-        
- 
         
 //        txtUserName.textInputMode .setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)
         
@@ -212,10 +206,8 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-        if (textField.isFirstResponder)
-        {
-            if textField.textInputMode?.primaryLanguage == "emoji" || !(((textField.textInputMode?.primaryLanguage) != nil))
-            {
+        if (textField.isFirstResponder) {
+            if textField.textInputMode?.primaryLanguage == "emoji" || !(((textField.textInputMode?.primaryLanguage) != nil)) {
                 return false
             }
         }
@@ -295,77 +287,12 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
         
     }
     
-    // for indicator finish
-    
-    @objc func finishedResponse() {
-        // timer
-        if self.flag == false {
-            return
-        }
-        
-        self.activeIndicator.stopAnimating()
-        self.activeIndicator.isHidden = true
-        self.view.isUserInteractionEnabled = true
-        
-        timer.invalidate()
-        
-        
-        if self.user_type == "1" {
-            
-            //transition effect
-            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
-            
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
-            
-        } else {
-            
-            //transition effect
-            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "BusinessDashboardView")
-            
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            self.present(toViewController!, animated: false, completion:nil)
-        }
-        
-    }
-    
-    @objc func finishedResponse2() {
-        // timer
-        if self.flag == false {
-            return
-        }
-        
-        self.activeIndicator.stopAnimating()
-        self.activeIndicator.isHidden = true
-        self.view.isUserInteractionEnabled = true
-        
-        timer.invalidate()
-        
-        MessageBoxViewController.showAlert(self, title: "Forgot Password", message: "The link was sent to your email address." )
-    }
-    
-    
     @IBAction func ForgotAction(_ sender: Any) {
         if (txtUserName.text?.isEmpty)! {
-            
             if (txtUserName.text?.isEmpty)! {
-                
                 MessageBoxViewController.showAlert(self, title: "Alert", message: "Username field is required" )
             }
         } else {
-            self.flag = false
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.finishedResponse2), userInfo: nil, repeats: true)
-            
             let userName = txtUserName.text
             let url = Common.api_location + "forgot_password.php"
             let params = ["username": userName] as [String : Any]
@@ -376,43 +303,32 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
                 self.activeIndicator.startAnimating()
                 self.view.isUserInteractionEnabled = false
                 
-                
                 //get from server
                 opt?.run { response in
+                    DispatchQueue.main.sync(execute: {
+                        self.view.isUserInteractionEnabled = true
+                        self.activeIndicator.stopAnimating()
+                        self.activeIndicator.isHidden = true
+                    })
+                    
                     if let error = response.error {
-                        
                         DispatchQueue.main.sync(execute: {
-                            
-                            self.view.isUserInteractionEnabled = true
-                            
                             MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
-                            // stop timer
-                            self.activeIndicator.stopAnimating()
-                            self.activeIndicator.isHidden = true
-                            self.timer.invalidate()
                             return
                         })
-                        
                     }
                     do {
-                        self.flag = true
+                        DispatchQueue.main.sync(execute: {
+                            MessageBoxViewController.showAlert(self, title: "Forgot Password", message: "The link was sent to your email address." )
+                        })
                     } catch {
                         DispatchQueue.main.sync(execute: {
-                            self.view.isUserInteractionEnabled = true
-                            
                             MessageBoxViewController.showAlert(self, title: "Error", message: self.message)
-                            // stop timer
-                            self.activeIndicator.stopAnimating()
-                            self.activeIndicator.isHidden = true
-                            self.timer.invalidate()
-                            
                             return
                         })
-                        
                     }
                 }
             } catch let error {
-                //Toast.toast("Request error: \(error)")
             }
         }
         
@@ -431,13 +347,7 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
             if (txtPassword.text?.isEmpty)! {
                 MessageBoxViewController.showAlert(self, title: "Error", message: "Password field is required" )
             }
-        }
-        else{
-            
-            
-            self.flag = false
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.finishedResponse), userInfo: nil, repeats: true)
-            
+        } else {
             let userName = txtUserName.text
             let password = txtPassword.text
 //            let lan = String(Common.Coordinate.latitude)
@@ -450,35 +360,27 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
                           "password": password,
                           "lat": lan,
                           "lon": lon] as [String : Any]
-            
             do {
                 let opt = try HTTP.POST(url, parameters: params)
                 self.activeIndicator.isHidden = false
                 self.activeIndicator.startAnimating()
                 self.view.isUserInteractionEnabled = false
                 
-                
                 //get from server
                 opt?.run { response in
+                    DispatchQueue.main.sync(execute: {
+                        self.view.isUserInteractionEnabled = true
+                        self.activeIndicator.stopAnimating()
+                        self.activeIndicator.isHidden = true
+                    })
+                    
                     if let error = response.error {
-                        
                         DispatchQueue.main.sync(execute: {
-                            
-                            self.view.isUserInteractionEnabled = true
-                            
                             MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
-                            
-                            // stop timer
-                            self.activeIndicator.stopAnimating()
-                            self.activeIndicator.isHidden = true
-                            self.timer.invalidate()
-                            
                             return
                         })
-                        
                     }
                     do {
-                        print (response.text!)
                         self.decoder = JSONLoader(response.text!)
                         self.message = try self.decoder["message"].get()
                         self.user_type = try self.decoder["user_type"].get()
@@ -488,83 +390,61 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
                             if Common.customerModel.success == "true" {
                                 self.defaults.set(Common.customerModel.user_type, forKey: "user_type")
                                 self.defaults.set(Common.customerModel.user_id, forKey: "user_id")
-                                self.flag = true
-                            }else {
                                 
                                 DispatchQueue.main.sync(execute: {
+                                    let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
                                     
-                                    self.view.isUserInteractionEnabled = true
-                                    
+                                    let transition = CATransition()
+                                    transition.type = kCATransitionPush
+                                    transition.subtype = kCATransitionFromRight
+                                    transition.duration = 0.5
+                                    self.view.window!.layer.add(transition, forKey: kCATransition)
+                                    toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                                    toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+                                    self.present(toViewController!, animated: true, completion:nil)
+                                })
+                            } else {
+                                DispatchQueue.main.sync(execute: {
                                     MessageBoxViewController.showAlert(self, title: "Error", message: Common.customerModel.message!)
-                                    
-                                    // stop timer
-                                    self.activeIndicator.stopAnimating()
-                                    self.activeIndicator.isHidden = true
-                                    self.timer.invalidate()
-                                    
                                     return
                                 })
                             }
                         } else if self.user_type == "2" {
                             Common.businessModel = try BusinessModel(JSONLoader(response.text!))
                             if Common.businessModel.success == "true" {
-                                self.flag = true
-                                
                                 self.defaults.set(Common.businessModel.user_type, forKey: "user_type")
                                 self.defaults.set(Common.businessModel.user_id, forKey: "user_id")
-                                
-                            }else {
-                                
                                 DispatchQueue.main.sync(execute: {
+                                    let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "BusinessDashboardView")
                                     
-                                    self.view.isUserInteractionEnabled = true
-                                    
+                                    let transition = CATransition()
+                                    transition.type = kCATransitionPush
+                                    transition.subtype = kCATransitionFromRight
+                                    transition.duration = 0.5
+                                    self.view.window!.layer.add(transition, forKey: kCATransition)
+                                    self.present(toViewController!, animated: false, completion:nil)
+                                })
+                            } else {
+                                DispatchQueue.main.sync(execute: {
                                     MessageBoxViewController.showAlert(self, title: "Error", message: Common.businessModel.message!)
-                                    // stop timer
-                                    self.activeIndicator.stopAnimating()
-                                    self.activeIndicator.isHidden = true
-                                    self.timer.invalidate()
-                                    
                                     return
                                 })
-                                
                             }
                         } else if self.user_type == nil || self.user_type == "" {
                             
                             DispatchQueue.main.sync(execute: {
-                                
-                                self.view.isUserInteractionEnabled = true
-                                
                                 MessageBoxViewController.showAlert(self, title: "Error", message: self.message)
-                                // stop timer
-                                self.activeIndicator.stopAnimating()
-                                self.activeIndicator.isHidden = true
-                                self.timer.invalidate()
-                                
                                 return
                             })
                         }
-                        
-                        
                     } catch {
-                        
                         DispatchQueue.main.sync(execute: {
-                            
-                            self.view.isUserInteractionEnabled = true
-                            
                             MessageBoxViewController.showAlert(self, title: "Error", message: self.message)
-                            // stop timer
-                            self.activeIndicator.stopAnimating()
-                            self.activeIndicator.isHidden = true
-                            self.timer.invalidate()
-                            
                             return
                         })
-                        
                     }
                 }
             } catch let error {
-                //Toast.toast("Request error: \(error)")
             }
             
         }
@@ -623,35 +503,7 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
 //        activeIndicator.startAnimating()
     }
     
-    @objc func finishedResponse1() {
-        // timer
-        if self.flag == false {
-            return
-        }
-        
-        self.activeIndicator.stopAnimating()
-        self.activeIndicator.isHidden = true
-        self.view.isUserInteractionEnabled = true
-        
-        timer.invalidate()
-        
-        //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
-        
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
-    }
     func SocialSignIn(_ social_type : Int){
-        
-        self.flag = false
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.finishedResponse1), userInfo: nil, repeats: true)
-        
         //from address get latitude and longitude
         
         var lat = String(Common.Coordinate.latitude)
@@ -675,19 +527,15 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
             
             //get from server
             opt?.run { response in
+                DispatchQueue.main.sync(execute: {
+                    self.view.isUserInteractionEnabled = true
+                    self.activeIndicator.stopAnimating()
+                    self.activeIndicator.isHidden = true
+                })
+                
                 if let error = response.error {
-                    
                     DispatchQueue.main.sync(execute: {
-                        
-                        self.view.isUserInteractionEnabled = true
-                        
                         MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
-                        
-                        // stop timer
-                        self.activeIndicator.stopAnimating()
-                        self.activeIndicator.isHidden = true
-                        self.timer.invalidate()
-                       
                         return
                     })
                 }
@@ -696,19 +544,24 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
                     if Common.customerModel.success == "true" {
                         self.defaults.set(Common.customerModel.user_type, forKey: "user_type")
                         self.defaults.set(Common.customerModel.user_id, forKey: "user_id")
-                        self.flag = true
-                    }else {
+                        
+                        DispatchQueue.main.sync(execute: {
+                            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
+                            
+                            let transition = CATransition()
+                            transition.type = kCATransitionPush
+                            transition.subtype = kCATransitionFromRight
+                            transition.duration = 0.5
+                            self.view.window!.layer.add(transition, forKey: kCATransition)
+                            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+                            self.present(toViewController!, animated: true, completion:nil)
+                        })
+                    } else {
                         
                         DispatchQueue.main.sync(execute: {
                             GPPSignIn.sharedInstance().signOut()
-                            self.view.isUserInteractionEnabled = true
-                            
                             MessageBoxViewController.showAlert(self, title: "Error", message: Common.customerModel.message!)
-                            // stop timer
-                            self.activeIndicator.stopAnimating()
-                            self.activeIndicator.isHidden = true
-                            self.timer.invalidate()
-                        
                             return
                         })
                     }
@@ -719,27 +572,6 @@ class SigninViewController: UIViewController, UITextFieldDelegate, GPPSignInDele
         } catch let error {
             //Toast.toast("Request error: \(error)")
         }
-        
-    }
-    
-    func didFailWithOAuthIOError(error: NSError!) {
-        
-    }
-    
-    
-    func didFailAuthenticationServerSide(_ body: String!, andResponse response: URLResponse!, andError error: Error!) {
-        
-    }
-    
-    func didAuthenticateServerSide(_ body: String!, andResponse response: URLResponse!) {
-        
-    }
-    
-    func didReceiveOAuthIOCode(_ code: String!) {
-        
-    }
-    
-    func didFail(withOAuthIOError error: Error!) {
         
     }
 }

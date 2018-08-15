@@ -68,7 +68,6 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
         let params = ["lat":String(Common.Coordinate.latitude),
                       "lon":String(Common.Coordinate.longitude),
                       "customer":Common.customerModel.user_id!] as [String : Any]
-        print(params)
         self.locationInfo.removeAll()
         do {
             let opt = try HTTP.POST(url, parameters: params)
@@ -78,7 +77,6 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
                     return
                 }
                 do {
-//                    print (response.text!)
                     let decoder: JSONLoader = JSONLoader(response.text!)
                     
                     guard let decoderArray = decoder.getOptionalArray() else {throw JSONError.wrongType}
@@ -104,15 +102,12 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
         
 //        Common.Coordinate = CLLocationCoordinate2D(latitude: 51.508742, longitude:-0.120850 )
         
-        get_around_coins()
+        self.get_around_coins()
         self.wallet_countLabel.text = String(Common.customerModel.wallets.count)
         self.locationTracker.addLocationChangeObserver { (result) -> () in
             switch result {
             case .success(let location):
                 Common.Coordinate = location.physical.coordinate
-//                print("dragon")
-//                print (location.physical.coordinate.latitude)
-//                print (location.physical.coordinate.longitude)
                 self.get_around_coins()
             case .failure: break
                 

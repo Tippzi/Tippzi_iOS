@@ -51,7 +51,6 @@
 		845317101FE7A2DB001537FE /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8453170C1FE7A2DA001537FE /* TwitterCore.framework */; };
 		845317111FE7A2DB001537FE /* TwitterShareExtensionUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8453170D1FE7A2DB001537FE /* TwitterShareExtensionUIResources.bundle */; };
 		845317121FE7A2DB001537FE /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8453170E1FE7A2DB001537FE /* TwitterKit.framework */; };
-		8456C2A420197349003C419B /* my_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456C2A320197348003C419B /* my_location.png */; };
 		845F2DD11FBF3705005B296C /* CreateGuestAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F2DD01FBF3705005B296C /* CreateGuestAccountViewController.swift */; };
 		845F2DD31FBF79C0005B296C /* Tutorial1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F2DD21FBF79C0005B296C /* Tutorial1ViewController.swift */; };
 		845F2DD51FBF7A2E005B296C /* Tutorial2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F2DD41FBF7A2E005B296C /* Tutorial2ViewController.swift */; };
@@ -144,7 +143,6 @@
 		848D85CE1FF0EFF000E860DD /* ico_option_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 848D85CD1FF0EFEB00E860DD /* ico_option_select.png */; };
 		848D85D01FF0F00500E860DD /* ico_option_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 848D85CF1FF0F00000E860DD /* ico_option_unselect.png */; };
 		848D85D21FF1006900E860DD /* BusinessCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D85D11FF1006900E860DD /* BusinessCategoryViewController.swift */; };
-		84901C6D1FD205FE00E88CBB /* ico_my_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 84901C6C1FD205FE00E88CBB /* ico_my_location.png */; };
 		84902A052034CFA50095EE2A /* MapDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84902A042034CFA50095EE2A /* MapDataFetch.swift */; };
 		849594E11FF17DA2009D0538 /* BusinessCategoryViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849594E01FF17DA2009D0538 /* BusinessCategoryViewController1.swift */; };
 		849594F01FF1A879009D0538 /* category2.png in Resources */ = {isa = PBXBuildFile; fileRef = 849594E91FF1A86F009D0538 /* category2.png */; };
@@ -174,8 +172,6 @@
 		84BA291920215FEB000697C7 /* ico_selected_location_category1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84BA291520215FEB000697C7 /* ico_selected_location_category1.png */; };
 		84BA291A20215FEB000697C7 /* ico_selected_location_category2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84BA291620215FEB000697C7 /* ico_selected_location_category2.png */; };
 		84BA6D56207655F7002BD694 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6D55207655F7002BD694 /* TermsAndConditionsViewController.swift */; };
-		84BE17F32015DC6300C1B4C2 /* ico_area.png in Resources */ = {isa = PBXBuildFile; fileRef = 84BE17EE2015DC3900C1B4C2 /* ico_area.png */; };
-		84BE17F42015DC6300C1B4C2 /* ico_nightlife_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 84BE17F22015DC6300C1B4C2 /* ico_nightlife_search.png */; };
 		84C050C81FB0EA1600636D35 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C050C71FB0EA1600636D35 /* MainViewController.swift */; };
 		84C050CA1FB0EC2000636D35 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C050C91FB0EC2000636D35 /* SplashViewController.swift */; };
 		84C6CF3C2012015D003DD059 /* myCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6CF3B2012015D003DD059 /* myCheckBox.swift */; };
@@ -231,15 +227,18 @@
 		84FA9D5B1FEA9E6B00C0EB59 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA9D5A1FEA9E6B00C0EB59 /* CategoriesViewController.swift */; };
 		84FA9D5D1FEAA07A00C0EB59 /* ico_close_category.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FA9D5C1FEAA07500C0EB59 /* ico_close_category.png */; };
 		84FA9D6C1FEAC6FE00C0EB59 /* ico_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FA9D681FEAC6F700C0EB59 /* ico_uncheck.png */; };
-		84FDDF45203809F700DDD094 /* ico_blue_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FDDF3F2038099600DDD094 /* ico_blue_location.png */; };
-		84FDDF46203809F700DDD094 /* ico_red_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FDDF43203809C700DDD094 /* ico_red_location.png */; };
-		84FDDF47203809F700DDD094 /* ico_yellow_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FDDF44203809F600DDD094 /* ico_yellow_icon.png */; };
 		84FE2F9F1FB16EFE00FACE75 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2F9E1FB16EFE00FACE75 /* SigninViewController.swift */; };
 		84FE2FA11FB174A300FACE75 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2FA01FB174A300FACE75 /* CreateAccountViewController.swift */; };
 		D87F1EC9211A52B600877986 /* coin_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1EC8211A52B000877986 /* coin_mark.png */; };
 		D87F1ECB211A5AC300877986 /* img_tippzi_coin.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */; };
 		D87F1ECD211A5BAF00877986 /* btn_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECC211A5BA900877986 /* btn_camera.png */; };
 		D87F1ECF211A5E7900877986 /* btn_my_location.png in Resources */ = {isa = PBXBuildFile; fileRef = D87F1ECE211A5E7400877986 /* btn_my_location.png */; };
+		D894C434211C9F4C00EB476A /* ico_my_location.png in Resources */ = {isa = PBXBuildFile; fileRef = D894C42E211C9F4700EB476A /* ico_my_location.png */; };
+		D894C435211C9F4C00EB476A /* ico_nightlife_search.png in Resources */ = {isa = PBXBuildFile; fileRef = D894C42F211C9F4900EB476A /* ico_nightlife_search.png */; };
+		D894C436211C9F4C00EB476A /* ico_red_location.png in Resources */ = {isa = PBXBuildFile; fileRef = D894C430211C9F4A00EB476A /* ico_red_location.png */; };
+		D894C437211C9F4C00EB476A /* ico_yellow_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D894C431211C9F4A00EB476A /* ico_yellow_icon.png */; };
+		D894C438211C9F4C00EB476A /* ico_blue_location.png in Resources */ = {isa = PBXBuildFile; fileRef = D894C432211C9F4B00EB476A /* ico_blue_location.png */; };
+		D894C439211C9F4C00EB476A /* my_location.png in Resources */ = {isa = PBXBuildFile; fileRef = D894C433211C9F4B00EB476A /* my_location.png */; };
 		D8A801802118CCC00055789C /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8017C2118CCBF0055789C /* SearchTextField.swift */; };
 		D8A801872118ED080055789C /* img_find_deal.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A801812118ECDF0055789C /* img_find_deal.png */; };
 		D8A801882118ED080055789C /* img_round_tippzi.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A801822118ECEB0055789C /* img_round_tippzi.png */; };
@@ -352,7 +351,6 @@
 		8453170C1FE7A2DA001537FE /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = lib/Twitter/TwitterCore.framework; sourceTree = "<group>"; };
 		8453170D1FE7A2DB001537FE /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterShareExtensionUIResources.bundle; path = lib/Twitter/TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
 		8453170E1FE7A2DB001537FE /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = lib/Twitter/TwitterKit.framework; sourceTree = "<group>"; };
-		8456C2A320197348003C419B /* my_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_location.png; sourceTree = "<group>"; };
 		845F2DD01FBF3705005B296C /* CreateGuestAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateGuestAccountViewController.swift; path = Controller/CreateGuestAccountViewController.swift; sourceTree = "<group>"; };
 		845F2DD21FBF79C0005B296C /* Tutorial1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tutorial1ViewController.swift; path = Controller/Tutorial1ViewController.swift; sourceTree = "<group>"; };
 		845F2DD41FBF7A2E005B296C /* Tutorial2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tutorial2ViewController.swift; path = Controller/Tutorial2ViewController.swift; sourceTree = "<group>"; };
@@ -448,7 +446,6 @@
 		848D85CD1FF0EFEB00E860DD /* ico_option_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_option_select.png; path = Images/ico_option_select.png; sourceTree = "<group>"; };
 		848D85CF1FF0F00000E860DD /* ico_option_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_option_unselect.png; path = Images/ico_option_unselect.png; sourceTree = "<group>"; };
 		848D85D11FF1006900E860DD /* BusinessCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusinessCategoryViewController.swift; path = Controller/BusinessCategoryViewController.swift; sourceTree = "<group>"; };
-		84901C6C1FD205FE00E88CBB /* ico_my_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_my_location.png; sourceTree = "<group>"; };
 		84902A042034CFA50095EE2A /* MapDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapDataFetch.swift; path = Custom/MapDataFetch.swift; sourceTree = "<group>"; };
 		849594E01FF17DA2009D0538 /* BusinessCategoryViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusinessCategoryViewController1.swift; path = Controller/BusinessCategoryViewController1.swift; sourceTree = "<group>"; };
 		849594E91FF1A86F009D0538 /* category2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category2.png; path = Images/category2.png; sourceTree = "<group>"; };
@@ -478,8 +475,6 @@
 		84BA291520215FEB000697C7 /* ico_selected_location_category1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_selected_location_category1.png; path = Images/ico_selected_location_category1.png; sourceTree = "<group>"; };
 		84BA291620215FEB000697C7 /* ico_selected_location_category2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_selected_location_category2.png; path = Images/ico_selected_location_category2.png; sourceTree = "<group>"; };
 		84BA6D55207655F7002BD694 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TermsAndConditionsViewController.swift; path = Controller/TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
-		84BE17EE2015DC3900C1B4C2 /* ico_area.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_area.png; sourceTree = "<group>"; };
-		84BE17F22015DC6300C1B4C2 /* ico_nightlife_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_nightlife_search.png; sourceTree = "<group>"; };
 		84C050C71FB0EA1600636D35 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controller/MainViewController.swift; sourceTree = "<group>"; };
 		84C050C91FB0EC2000636D35 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Controller/SplashViewController.swift; sourceTree = "<group>"; };
 		84C6CF3B2012015D003DD059 /* myCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = myCheckBox.swift; path = View/myCheckBox.swift; sourceTree = "<group>"; };
@@ -538,9 +533,6 @@
 		84FA9D5A1FEA9E6B00C0EB59 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoriesViewController.swift; path = Controller/CategoriesViewController.swift; sourceTree = "<group>"; };
 		84FA9D5C1FEAA07500C0EB59 /* ico_close_category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_close_category.png; path = Images/ico_close_category.png; sourceTree = "<group>"; };
 		84FA9D681FEAC6F700C0EB59 /* ico_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_uncheck.png; path = Images/ico_uncheck.png; sourceTree = "<group>"; };
-		84FDDF3F2038099600DDD094 /* ico_blue_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_blue_location.png; sourceTree = "<group>"; };
-		84FDDF43203809C700DDD094 /* ico_red_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_red_location.png; sourceTree = "<group>"; };
-		84FDDF44203809F600DDD094 /* ico_yellow_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_yellow_icon.png; sourceTree = "<group>"; };
 		84FE2F9E1FB16EFE00FACE75 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SigninViewController.swift; path = Controller/SigninViewController.swift; sourceTree = "<group>"; };
 		84FE2FA01FB174A300FACE75 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateAccountViewController.swift; path = Controller/CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AF13C3808E8E9B0BE7B097AD /* Pods_Tippzi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tippzi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -549,6 +541,12 @@
 		D87F1ECA211A5ABE00877986 /* img_tippzi_coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_tippzi_coin.png; path = Images/img_tippzi_coin.png; sourceTree = "<group>"; };
 		D87F1ECC211A5BA900877986 /* btn_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_camera.png; path = Images/btn_camera.png; sourceTree = "<group>"; };
 		D87F1ECE211A5E7400877986 /* btn_my_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_my_location.png; path = Images/btn_my_location.png; sourceTree = "<group>"; };
+		D894C42E211C9F4700EB476A /* ico_my_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_my_location.png; path = Images/ico_my_location.png; sourceTree = "<group>"; };
+		D894C42F211C9F4900EB476A /* ico_nightlife_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_nightlife_search.png; path = Images/ico_nightlife_search.png; sourceTree = "<group>"; };
+		D894C430211C9F4A00EB476A /* ico_red_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_red_location.png; path = Images/ico_red_location.png; sourceTree = "<group>"; };
+		D894C431211C9F4A00EB476A /* ico_yellow_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_yellow_icon.png; path = Images/ico_yellow_icon.png; sourceTree = "<group>"; };
+		D894C432211C9F4B00EB476A /* ico_blue_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_blue_location.png; path = Images/ico_blue_location.png; sourceTree = "<group>"; };
+		D894C433211C9F4B00EB476A /* my_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = my_location.png; path = Images/my_location.png; sourceTree = "<group>"; };
 		D8A8017C2118CCBF0055789C /* SearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTextField.swift; path = Custom/SearchTextField.swift; sourceTree = "<group>"; };
 		D8A801812118ECDF0055789C /* img_find_deal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_find_deal.png; path = Images/img_find_deal.png; sourceTree = "<group>"; };
 		D8A801822118ECEB0055789C /* img_round_tippzi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_round_tippzi.png; path = Images/img_round_tippzi.png; sourceTree = "<group>"; };
@@ -734,6 +732,12 @@
 		840001791FAB016B00C19E8D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D894C432211C9F4B00EB476A /* ico_blue_location.png */,
+				D894C42E211C9F4700EB476A /* ico_my_location.png */,
+				D894C42F211C9F4900EB476A /* ico_nightlife_search.png */,
+				D894C430211C9F4A00EB476A /* ico_red_location.png */,
+				D894C431211C9F4A00EB476A /* ico_yellow_icon.png */,
+				D894C433211C9F4B00EB476A /* my_location.png */,
 				D8F9BBB1211C19CE00F57556 /* img_tippzi_mark.png */,
 				D8F9BBAF211C15F100F57556 /* img_bottom_bar_1.png */,
 				D8F9BBAA211C0D3600F57556 /* bg_tippzi_coin.png */,
@@ -753,17 +757,12 @@
 				D8A8018F211969FF0055789C /* ico_twitter2.png */,
 				D8A8019521196A290055789C /* icon_bar.png */,
 				D8A8019021196A010055789C /* icon_service.png */,
-				84FDDF3F2038099600DDD094 /* ico_blue_location.png */,
-				84FDDF43203809C700DDD094 /* ico_red_location.png */,
-				84FDDF44203809F600DDD094 /* ico_yellow_icon.png */,
 				84BA291520215FEB000697C7 /* ico_selected_location_category1.png */,
 				84BA291620215FEB000697C7 /* ico_selected_location_category2.png */,
 				84BA291320215FEA000697C7 /* ico_selected_location_category3.png */,
 				84BA291420215FEA000697C7 /* ico_selected_location.png */,
 				8444139A2020B1630013D8B6 /* ico_select_category.png */,
 				8463C75C200FFDC50013161A /* ico_hair_search.jpg */,
-				84BE17EE2015DC3900C1B4C2 /* ico_area.png */,
-				84BE17F22015DC6300C1B4C2 /* ico_nightlife_search.png */,
 				8463C758200FFDC10013161A /* ico_health_search.jpg */,
 				8463C75D200FFDC50013161A /* ico_nightlife_search.jpg */,
 				84EFD15D200E163100894A93 /* ico_arrow.gif */,
@@ -799,7 +798,6 @@
 				84770EBC1FDEF0CC00328B34 /* ico_close1_hint.png */,
 				846689811FDC91CD007267C0 /* ic_visibility_off.png */,
 				846689821FDC91CD007267C0 /* ic_visibility.png */,
-				84901C6C1FD205FE00E88CBB /* ico_my_location.png */,
 				845039AC1FC1F9FB009DDCE3 /* ico_back1.png */,
 				846E46A11FBCCFEB00C20E80 /* icon_eye.png */,
 				846E469F1FBCCFA600C20E80 /* 1 2.gif */,
@@ -827,7 +825,6 @@
 				847149EB1FB059A000FE58A3 /* ico_previous.png */,
 				847149EC1FB059A000FE58A3 /* ico_redeem.png */,
 				847149ED1FB059A000FE58A3 /* ico_search.png */,
-				8456C2A320197348003C419B /* my_location.png */,
 				847149EF1FB059A000FE58A3 /* ico_sign_out.png */,
 				847149F01FB059A000FE58A3 /* ico_ticket_active.png */,
 				847149F11FB059A000FE58A3 /* ico_ticket_button.png */,
@@ -1160,16 +1157,14 @@
 				840E57641FFBFF12004C84D4 /* SmallCardView.xib in Resources */,
 				84BA291820215FEB000697C7 /* ico_selected_location.png in Resources */,
 				D8A8018A2118ED080055789C /* ico_tippzi_go.png in Resources */,
+				D894C436211C9F4C00EB476A /* ico_red_location.png in Resources */,
 				846E46A01FBCCFA600C20E80 /* 1 2.gif in Resources */,
 				84A856D81FD480EC00351112 /* CustomerBarCell.xib in Resources */,
 				84BA291720215FEB000697C7 /* ico_selected_location_category3.png in Resources */,
 				84714A081FB059A000FE58A3 /* ico_clock.png in Resources */,
-				84FDDF46203809F700DDD094 /* ico_red_location.png in Resources */,
 				84D4DA2B1FE4A5740024730E /* GPPShareActivity_ios8@2x~iphone.png in Resources */,
 				84714A0F1FB059A000FE58A3 /* ico_list_view.png in Resources */,
-				84BE17F42015DC6300C1B4C2 /* ico_nightlife_search.png in Resources */,
 				84714A131FB059A000FE58A3 /* ico_minus.png in Resources */,
-				84FDDF47203809F700DDD094 /* ico_yellow_icon.png in Resources */,
 				84714A141FB059A000FE58A3 /* ico_previous.png in Resources */,
 				849594F81FF1A897009D0538 /* ico_ticket_active_category3.png in Resources */,
 				84714A1A1FB059A000FE58A3 /* ico_ticket_button.png in Resources */,
@@ -1181,6 +1176,7 @@
 				84D9C17F1FAB1F0700CEB396 /* ico_google.png in Resources */,
 				84EFD15E200E163500894A93 /* ico_arrow.gif in Resources */,
 				848D85CE1FF0EFF000E860DD /* ico_option_select.png in Resources */,
+				D894C435211C9F4C00EB476A /* ico_nightlife_search.png in Resources */,
 				846E46A21FBCCFEB00C20E80 /* icon_eye.png in Resources */,
 				849594F71FF1A897009D0538 /* ico_ticket_active_category1.png in Resources */,
 				84D4DA1A1FE4A2A10024730E /* FacebookSDKStrings.bundle in Resources */,
@@ -1201,6 +1197,7 @@
 				84714A221FB059A000FE58A3 /* img_dashboard.png in Resources */,
 				84714A2A1FB059A000FE58A3 /* img_tutorial4.jpg in Resources */,
 				84714A071FB059A000FE58A3 /* ico_check.png in Resources */,
+				D894C438211C9F4C00EB476A /* ico_blue_location.png in Resources */,
 				84714A061FB059A000FE58A3 /* ico_camera.png in Resources */,
 				D8A8018B2118ED080055789C /* ico_tippzi_mark.png in Resources */,
 				84714A161FB059A000FE58A3 /* ico_search.png in Resources */,
@@ -1211,6 +1208,7 @@
 				8404889820039CE2003669B7 /* ico_Health_Fitness.jpg in Resources */,
 				84BA291A20215FEB000697C7 /* ico_selected_location_category2.png in Resources */,
 				84714A231FB059A000FE58A3 /* img_main_background 2.jpg in Resources */,
+				D894C434211C9F4C00EB476A /* ico_my_location.png in Resources */,
 				8463C75F200FFDC60013161A /* ico_hair_search.jpg in Resources */,
 				84D4DA2A1FE4A5740024730E /* GPPShareActivity@2x~iphone.png in Resources */,
 				D87F1ECF211A5E7900877986 /* btn_my_location.png in Resources */,
@@ -1243,12 +1241,12 @@
 				84608C791FCDEA3E00D672A7 /* CardView.xib in Resources */,
 				8404889C20039D97003669B7 /* CategoriesItemView.xib in Resources */,
 				84FA9D421FE86F1800C0EB59 /* Assets.xcassets in Resources */,
-				84FDDF45203809F700DDD094 /* ico_blue_location.png in Resources */,
 				84714A101FB059A000FE58A3 /* ico_location.png in Resources */,
 				84770EC31FDEF84F00328B34 /* ico_ticket_bar_1.jpg in Resources */,
 				84714A0B1FB059A000FE58A3 /* ico_edit_profile.png in Resources */,
 				84714A241FB059A000FE58A3 /* img_purple_curve_large 2.jpg in Resources */,
 				84E706EB1FB9E78E0054D8B6 /* icon_dot_line.jpg in Resources */,
+				D894C439211C9F4C00EB476A /* my_location.png in Resources */,
 				84714A1D1FB059A000FE58A3 /* ico_unselected_location.png in Resources */,
 				84CB36721FE63A6D00E15553 /* WalletItemView.xib in Resources */,
 				D8F9BBAB211C0D3A00F57556 /* img_bottom_bar.png in Resources */,
@@ -1256,17 +1254,16 @@
 				84CB36701FE62B4E00E15553 /* DashItemView.xib in Resources */,
 				84770EC41FDEF84F00328B34 /* ico_ticket_bar_2.png in Resources */,
 				8453170F1FE7A2DB001537FE /* TwitterKitResources.bundle in Resources */,
+				D894C437211C9F4C00EB476A /* ico_yellow_icon.png in Resources */,
 				8404889720039CE2003669B7 /* ico_Hair_Beauty.jpg in Resources */,
 				8463C75E200FFDC60013161A /* ico_health_search.jpg in Resources */,
 				D8A801A021196A4F0055789C /* ico_add_deal2.png in Resources */,
 				843A2BD21FFFACC700DD416B /* ico_location_category1.png in Resources */,
 				84D4DA301FE4A5870024730E /* Data in Resources */,
 				D8A8019821196A4E0055789C /* ico_twitter2.png in Resources */,
-				84BE17F32015DC6300C1B4C2 /* ico_area.png in Resources */,
 				84FA9D4B1FE8882D00C0EB59 /* ico_close_search.png in Resources */,
 				D87F1ECB211A5AC300877986 /* img_tippzi_coin.png in Resources */,
 				84714A251FB059A000FE58A3 /* img_purple_curve_small 2.jpg in Resources */,
-				84901C6D1FD205FE00E88CBB /* ico_my_location.png in Resources */,
 				D8F9BBB0211C15F600F57556 /* img_bottom_bar_1.png in Resources */,
 				84ED96C01FAB3FB800F9A58F /* img_purple_curve_large.jpg in Resources */,
 				849594F01FF1A879009D0538 /* category2.png in Resources */,
@@ -1282,7 +1279,6 @@
 				8463C760200FFDC60013161A /* ico_nightlife_search.jpg in Resources */,
 				843278E71FB3728C000EC83C /* Info.plist in Resources */,
 				8444139B2020B1640013D8B6 /* ico_select_category.png in Resources */,
-				8456C2A420197349003C419B /* my_location.png in Resources */,
 				84714A211FB059A000FE58A3 /* icon_ticket_bar.jpg in Resources */,
 				849594F11FF1A879009D0538 /* category3.png in Resources */,
 				84E533B81FD00EDE009391ED /* GooglePlus.bundle in Resources */,

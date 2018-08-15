@@ -46,8 +46,6 @@ class SplashViewController: UIViewController {
 
     let defaults = UserDefaults.standard
     @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
-    var flag:Bool = false
-    var timer:Timer = Timer()
     
     var button_size : CGFloat = 0
     var bar_name_size : CGFloat = 0
@@ -499,62 +497,6 @@ class SplashViewController: UIViewController {
         
     }
     
-    @objc func finishedResponse1() { //customer
-        // timer
-        if self.flag == false {
-            return
-        }
-        
-        self.view.isUserInteractionEnabled = true
-        
-        timer.invalidate()
-        
-        //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
-        if toViewController != nil {
-            
-            self.activeIndicator.isHidden = true
-            self.activeIndicator.stopAnimating()
-            
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
-        }
-        
-    }
-    @objc func finishedResponse2() { // business
-        // timer
-        if self.flag == false {
-            return
-        }
-        
-        self.view.isUserInteractionEnabled = true
-        
-        timer.invalidate()
-        
-        //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "BusinessDashboardView")
-        if toViewController != nil {
-            
-            self.activeIndicator.isHidden = true
-            self.activeIndicator.stopAnimating()
-            
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
-        }
-    }
-    
     @objc func showViewController1() {
         
         let user_id = defaults.string(forKey: "user_id")
@@ -562,9 +504,6 @@ class SplashViewController: UIViewController {
         // if customer
         let lan = String(self.coordinate.latitude)
         let lon = String(self.coordinate.longitude)
-        
-        self.flag = false
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.finishedResponse1), userInfo: nil, repeats: true)
         
         // HTTP request
         let url = Common.api_location + "check_remember_customer.php"
@@ -578,19 +517,17 @@ class SplashViewController: UIViewController {
             self.view.isUserInteractionEnabled = false
             
             opt?.run { response in
+                DispatchQueue.main.sync(execute: {
+                    self.view.isUserInteractionEnabled = true
+                    
+                    self.activeIndicator.stopAnimating()
+                    self.activeIndicator.isHidden = true
+                })
+                
                 if let error = response.error {
                     
                     DispatchQueue.main.sync(execute: {
-                        
-                        self.view.isUserInteractionEnabled = true
-                        
                         MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
-                        
-                        // stop timer
-                        self.activeIndicator.stopAnimating()
-                        self.activeIndicator.isHidden = true
-                        self.timer.invalidate()
-                        
                         return
                     })
                     
@@ -600,26 +537,32 @@ class SplashViewController: UIViewController {
                     if Common.customerModel.success == "true" {
                         self.defaults.set(Common.customerModel.user_type, forKey: "user_type")
                         self.defaults.set(Common.customerModel.user_id, forKey: "user_id")
-                        self.flag = true
-                    }else {
                         
+                        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
+                        if toViewController != nil {
+                            DispatchQueue.main.sync(execute: {
+                                let transition = CATransition()
+                                transition.type = kCATransitionPush
+                                transition.subtype = kCATransitionFromRight
+                                transition.duration = 0.5
+                                self.view.window!.layer.add(transition, forKey: kCATransition)
+                                toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                                toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+                                self.present(toViewController!, animated: true, completion:nil)
+                            })
+                        }
+                    } else {
                         DispatchQueue.main.sync(execute: {
-                            
-                            self.view.isUserInteractionEnabled = true
-                            
                             MessageBoxViewController.showAlert(self, title: "Error", message: Common.customerModel.message!)
-                            
-                            // stop timer
-                            self.activeIndicator.stopAnimating()
-                            self.activeIndicator.isHidden = true
-                            self.timer.invalidate()
-                            
                             return
                         })
                     }
                     
                 } catch {
                     //Toast.toast("Json string error: \(error)")
+                    DispatchQueue.main.sync(execute: {
+                        self.perform(#selector(SplashViewController.showViewController), with: nil, afterDelay: 0)
+                    })
                 }
             }
         } catch let error {
@@ -631,9 +574,6 @@ class SplashViewController: UIViewController {
         
         let user_id = defaults.string(forKey: "user_id")
         
-        self.flag = false
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.finishedResponse2), userInfo: nil, repeats: true)
-        
         // HTTP request
         let url = Common.api_location + "check_remember_business.php"
         let params = ["user_id": user_id]
@@ -644,47 +584,47 @@ class SplashViewController: UIViewController {
             self.view.isUserInteractionEnabled = false
             
             opt?.run { response in
+                DispatchQueue.main.sync(execute: {
+                    self.view.isUserInteractionEnabled = true
+                    self.activeIndicator.stopAnimating()
+                    self.activeIndicator.isHidden = true
+                })
+                
                 if let error = response.error {
-                    
                     DispatchQueue.main.sync(execute: {
-                        
-                        self.view.isUserInteractionEnabled = true
-                        
                         MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
-                        
-                        // stop timer
-                        self.activeIndicator.stopAnimating()
-                        self.activeIndicator.isHidden = true
-                        self.timer.invalidate()
-                        
                         return
                     })
-                    
                 }
                 do {
                     Common.businessModel = try BusinessModel(JSONLoader(response.text!))
                     if Common.businessModel.success == "true" {
                         self.defaults.set(Common.businessModel.user_type, forKey: "user_type")
                         self.defaults.set(Common.businessModel.user_id, forKey: "user_id")
-                        self.flag = true
                         
+                        DispatchQueue.main.sync(execute: {
+                            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "BusinessDashboardView")
+                            if toViewController != nil {
+                                self.activeIndicator.isHidden = true
+                                self.activeIndicator.stopAnimating()
+                                
+                                let transition = CATransition()
+                                transition.type = kCATransitionPush
+                                transition.subtype = kCATransitionFromRight
+                                transition.duration = 0.5
+                                self.view.window!.layer.add(transition, forKey: kCATransition)
+                                toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                                toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+                                self.present(toViewController!, animated: true, completion:nil)
+                            }
+                        })
                     }else {
                         
                         DispatchQueue.main.sync(execute: {
-                            
-                            self.view.isUserInteractionEnabled = true
-                            
                             MessageBoxViewController.showAlert(self, title: "Error", message: Common.businessModel.message!)
-                            
-                            // stop timer
-                            self.activeIndicator.stopAnimating()
-                            self.activeIndicator.isHidden = true
-                            self.timer.invalidate()
-                            
                             return
                         })
                     }
-                    
                 } catch {
                     //Toast.toast("Json string error: \(error)")
                 }

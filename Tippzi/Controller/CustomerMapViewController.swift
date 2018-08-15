@@ -12,6 +12,7 @@ import SDWebImage
 import SwiftHTTP
 import JSONJoy
 import Koloda
+import CoreLocation
 
 class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollectionViewDataSource, HWSwiftyViewPagerDelegate,UITextFieldDelegate, KolodaViewDelegate,  KolodaViewDataSource
 {
@@ -196,38 +197,36 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
         }
         else if Common.category_name == "Health & Fitness" {
             if Common.search_switch_flag == 0 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search an area", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_area.jpg"), for: .normal)
-                
             }
             else if Common.search_switch_flag == 1 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search a venue", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_health_search.jpg"), for: .normal)
-                
             }
         }
         else if Common.category_name == "Hair & Beauty" {
             if Common.search_switch_flag == 0 {
-                
+                searchTextField.attributedPlaceholder = NSAttributedString(string: "Search an area", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+                btnSearchSwitch.setImage(UIImage(named: "ico_area.jpg"), for: .normal)
+            }
+            else if Common.search_switch_flag == 1 {
+                searchTextField.attributedPlaceholder = NSAttributedString(string: "Search a beauty salon", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+                btnSearchSwitch.setImage(UIImage(named: "ico_hair_search.jpg"), for: .normal)
+            }
+        } else {
+            if Common.search_switch_flag == 0 {
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search an area", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_area.jpg"), for: .normal)
                 
-            }
-            else if Common.search_switch_flag == 1 {
-                
+                searchTextField.filterItems([])
+            } else if Common.search_switch_flag == 1 {
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search a beauty salon", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
-                btnSearchSwitch.setImage(UIImage(named: "ico_hair_search.jpg"), for: .normal)
+                btnSearchSwitch.setImage(UIImage(named: "icon_bar.png"), for: .normal)
                 
+                searchTextField.addBars(aryBarTitles)
+                self.get_service_names()
             }
-        } else {
-            Common.search_switch_flag = 1
-            btnSearchSwitch.isHidden = true
-            btnSearchSwitch.isEnabled = false
-            
-            searchTextField.addBars(aryBarTitles)
-            self.get_service_names()
         }
         
         self.search_action(Common.search_string)
@@ -665,7 +664,6 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
         let select_location = CLLocation(latitude : locationInfo[selectedPage].latitude, longitude: locationInfo[selectedPage].longitude)
         
         //add multiple markers on mapview
-        print(selectedPage)
         for i in 0 ..< locationInfo.count {
             //On load show first marker as selected marker
             
@@ -749,10 +747,7 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                 marker.map = googleMapView
                 marker.icon = self.imageWithImage(image: UIImage(named: "ico_unselected_location")!, scaledToSize: CGSize(width: Common.imageSize[0].width / 2, height: Common.imageSize[0].height / 2))
             }
-        }
-        
-        print(barIdArray_engagement)
-        
+        }        
     }
     
     func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
@@ -767,46 +762,36 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
     @IBAction func SearchSwitchAction(_ sender: Any) {
         
         if Common.category_name == "Nightlife" {
-            
             if Common.search_switch_flag == 0 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search a bar", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_nightlife_search.jpg"), for: .normal)
                 Common.search_switch_flag = 1
-                
             }
             else if Common.search_switch_flag == 1 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search an area", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_area.jpg"), for: .normal)
                 Common.search_switch_flag = 0
             }
         }
         else if Common.category_name == "Health & Fitness" {
-            
             if Common.search_switch_flag == 0 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search a venue", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_health_search.jpg"), for: .normal)
                 Common.search_switch_flag = 1
             }
             else if Common.search_switch_flag == 1 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search an area", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_area.jpg"), for: .normal)
                 Common.search_switch_flag = 0
             }
         }
         else if Common.category_name == "Hair & Beauty" {
-            
             if Common.search_switch_flag == 0 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search a beauty salon", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_hair_search.jpg"), for: .normal)
                 Common.search_switch_flag = 1
             }
             else if Common.search_switch_flag == 1 {
-                
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search an area", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_area.jpg"), for: .normal)
                 Common.search_switch_flag = 0
@@ -958,15 +943,15 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
         } else {
             searchlocationInfo = [LocationModel]()
             if Common.search_switch_flag == 0 { // Search an area
-                
+                /*
                 if Common.fromBarDetail_toMap_flag == false {
                     Common.select_page_in = 0
                 }
                 
                 searchlocationInfo = [LocationModel]()
                 for i in 0 ..< Common.selectcategory.count {
-                    var filterString = Common.selectcategory[i].address
-                    if filterString.lowercased().contains(search_string) {
+//                    var filterString = Common.selectcategory[i].address
+//                    if filterString.lowercased().contains(search_string) {
                         let lat = Common.selectcategory[i].latitude
                         let long = Common.selectcategory[i].longitude
                         var latitude = lat
@@ -983,10 +968,34 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                         category_deal = Common.selectcategory[i].selectcategory_deal
                         
                         searchlocationInfo += [LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name)]
-                        
-                    }
-                    
+//                    }
                 }
+                 */
+                
+                var geocoder = CLGeocoder()
+                geocoder.geocodeAddressString(search_string) {
+                    placemarks, error in
+                    let placemark = placemarks?.first
+                    let latitude = placemark?.location?.coordinate.latitude
+                    let longitude = placemark?.location?.coordinate.longitude
+//                    print("Lat: \(lat), Lon: \(lon)")
+                    
+                    let camera = GMSCameraPosition.camera(withLatitude: latitude!,
+                                                          longitude: longitude!,
+                                                          zoom: 15)
+//                    googleMapView.isMyLocationEnabled = true
+//                    googleMapView.settings.compassButton = true
+//                    googleMapView.settings.zoomGestures = false
+//                    if DeviceType.IS_IPHONE_5 {
+//                        googleMapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
+//                    }
+//                    else {
+//                        googleMapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 180, right: 0)
+//                    }
+                    
+                    self.googleMapView.camera = camera
+                }
+            
             }
             else if Common.search_switch_flag == 1 { // Search a bar
                 
@@ -1044,7 +1053,7 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
 
                 googleMapView.camera = camera
                 
-                for i in 0...locationInfo.count-1{
+                for i in 0...locationInfo.count - 1 {
                     let lat = CLLocationDegrees(locationInfo[i].latitude)
                     let long = CLLocationDegrees(locationInfo[i].longitude)
                     
@@ -1127,7 +1136,9 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                 self.viewPager.setPage(Common.select_page_in, isAnimation: true)
             }
             else {
-                
+                if (Common.search_switch_flag == 0) {
+                    return
+                }
                 MessageBoxViewController.showAlert(self, title: "Alert", message: "There is no data you required")
                 searchTextField.text = ""
                 googleMapView.clear()

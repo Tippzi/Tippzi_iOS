@@ -22,7 +22,10 @@ class TakeBreakViewController: UIViewController {
     }
     
     @IBAction func playAction(_ sender: Any) {
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "HuntResponsiblyViewController")
+        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "TippziGoMapViewController")
         self.navigationController?.pushViewController(toViewController!, animated: true)
+    }
+    @IBAction func goMainMenu(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
