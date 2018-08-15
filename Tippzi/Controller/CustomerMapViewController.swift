@@ -943,59 +943,51 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
         } else {
             searchlocationInfo = [LocationModel]()
             if Common.search_switch_flag == 0 { // Search an area
-                /*
+                
                 if Common.fromBarDetail_toMap_flag == false {
                     Common.select_page_in = 0
                 }
                 
                 searchlocationInfo = [LocationModel]()
-                for i in 0 ..< Common.selectcategory.count {
-//                    var filterString = Common.selectcategory[i].address
-//                    if filterString.lowercased().contains(search_string) {
-                        let lat = Common.selectcategory[i].latitude
-                        let long = Common.selectcategory[i].longitude
-                        var latitude = lat
-                        var longitude = long
-                        
-                        var barImage = Common.selectcategory[i].barImage
-                        var barTitle = Common.selectcategory[i].barTitle
-                        var music_type = Common.selectcategory[i].music_type
-                        var bar_id = Common.selectcategory[i].index_num
-                        var address = Common.selectcategory[i].address
-                        var service_name = Common.selectcategory[i].service_name
-                        
-                        var category_deal = [SelectCategoryDeal]()
-                        category_deal = Common.selectcategory[i].selectcategory_deal
-                        
-                        searchlocationInfo += [LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name)]
-//                    }
-                }
-                 */
+                var minDistance = -1.0
                 
-                var geocoder = CLGeocoder()
-                geocoder.geocodeAddressString(search_string) {
-                    placemarks, error in
-                    let placemark = placemarks?.first
-                    let latitude = placemark?.location?.coordinate.latitude
-                    let longitude = placemark?.location?.coordinate.longitude
-//                    print("Lat: \(lat), Lon: \(lon)")
-                    
-                    let camera = GMSCameraPosition.camera(withLatitude: latitude!,
-                                                          longitude: longitude!,
-                                                          zoom: 15)
-//                    googleMapView.isMyLocationEnabled = true
-//                    googleMapView.settings.compassButton = true
-//                    googleMapView.settings.zoomGestures = false
-//                    if DeviceType.IS_IPHONE_5 {
-//                        googleMapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
+//                var geocoder = CLGeocoder()
+//                geocoder.geocodeAddressString(search_string) {
+//                    placemarks, error in
+//                    if (error != nil) {
+//                        return
 //                    }
-//                    else {
-//                        googleMapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 180, right: 0)
-//                    }
-                    
-                    self.googleMapView.camera = camera
-                }
-            
+//                    let placemark = placemarks?.first
+//                    let lat = placemark?.location?.coordinate.latitude
+//                    let long = placemark?.location?.coordinate.longitude
+
+                    for i in 0 ..< Common.selectcategory.count {
+                        var filterString = Common.selectcategory[i].address
+                        if filterString.lowercased().contains(search_string) {
+                            let latitude = Common.selectcategory[i].latitude
+                            let longitude = Common.selectcategory[i].longitude
+                            
+                            var barImage = Common.selectcategory[i].barImage
+                            var barTitle = Common.selectcategory[i].barTitle
+                            var music_type = Common.selectcategory[i].music_type
+                            var bar_id = Common.selectcategory[i].index_num
+                            var address = Common.selectcategory[i].address
+                            var service_name = Common.selectcategory[i].service_name
+                            
+                            var category_deal = [SelectCategoryDeal]()
+                            category_deal = Common.selectcategory[i].selectcategory_deal
+                            
+                            let coordinate0 = CLLocation(latitude: Common.Coordinate.latitude, longitude: Common.Coordinate.longitude)
+                            let coordinate1 = CLLocation(latitude: latitude, longitude: longitude)
+                            var distance = coordinate0.distance(from: coordinate1)
+                            if (minDistance < 0 || minDistance > distance) {
+                                self.searchlocationInfo.insert(LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name), at: 0)
+                            } else {
+                                self.searchlocationInfo += [LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name)]
+                            }
+                        }
+                    }
+//                }
             }
             else if Common.search_switch_flag == 1 { // Search a bar
                 
@@ -1136,9 +1128,9 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                 self.viewPager.setPage(Common.select_page_in, isAnimation: true)
             }
             else {
-                if (Common.search_switch_flag == 0) {
-                    return
-                }
+//                if (Common.search_switch_flag == 0) {
+//                    return
+//                }
                 MessageBoxViewController.showAlert(self, title: "Alert", message: "There is no data you required")
                 searchTextField.text = ""
                 googleMapView.clear()

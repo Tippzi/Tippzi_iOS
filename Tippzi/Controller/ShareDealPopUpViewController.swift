@@ -372,15 +372,16 @@ class ShareDealPopUpViewController: UIViewController, GPPShareDelegate, GPPSignI
     
     @IBAction func gotoTicket(_ sender: Any) {
         
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "TicketView")
-        let transition = CATransition()
-        transition.type =  kCATransitionFromBottom
-        transition.subtype = kCATransitionFromBottom
-        transition.duration = 0.2
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+//        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "TicketView")
+//        let transition = CATransition()
+//        transition.type =  kCATransitionFromBottom
+//        transition.subtype = kCATransitionFromBottom
+//        transition.duration = 0.2
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
+        self.dismiss(animated: true, completion: nil);
     }
     
     

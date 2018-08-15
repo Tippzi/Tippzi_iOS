@@ -19,12 +19,13 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
     
     @IBOutlet weak var wallet_countLabel: UILabel!
     @IBOutlet weak var googleMapView: GMSMapView!
+    @IBOutlet weak var remainTimeLabel: UILabel!
     
+    var remainTime: Int? = 0
     let defaults = UserDefaults.standard
-    
     let locationTracker = LocationTracker(threshold: 10.0)
-    
     var locationInfo = [TippziCoinModel]()
+    var timer: Timer?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,33 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
         
         wallet_countLabel.layer.cornerRadius = wallet_countLabel.frame.width / 2
         wallet_countLabel.layer.masksToBounds = true
+        
+        let collectedTime: Double? = UserDefaults.standard.value(forKey: "CollectedTime") as? Double
+        
+        if (collectedTime == nil) {
+            self.remainTimeLabel.isHidden = true
+        } else {
+            self.remainTime = 90 - (Int(Date().timeIntervalSince1970 - collectedTime!))
+            if (self.remainTime! <= 0) {
+                self.remainTime = 0
+                self.remainTimeLabel.isHidden = true
+            } else {
+                self.remainTimeLabel.text = "Remain Time : \(self.remainTime!)"
+                self.remainTimeLabel.isHidden = false
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(TippziGoMapViewController.updateTimer)), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    
+    func updateTimer() {
+        self.remainTime! -= 1
+        self.remainTimeLabel.text = "Remain Time : \(self.remainTime!)"
+        if (self.remainTime! <= 0) {
+            self.timer?.invalidate()
+            self.timer = nil
+            self.remainTime = 0
+            self.remainTimeLabel.isHidden = true
+        }
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -44,8 +72,11 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
     
     // take care of the close event
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "LetPlayViewController")
-        self.navigationController?.pushViewController(toViewController!, animated: true)
+        if (self.remainTime! > 0) {
+            Toast.toast("You have to wait to gather a coin.")
+            return false
+        }
+        self.get_enable_coin(marker.userData as! Int)
         
         return true
     }
@@ -97,6 +128,46 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
         }
     }
     
+    func get_enable_coin(_ id: Int)
+    {
+        print (id)
+        let url = Common.host + "api/coin/get_coin_available"
+        let params = ["coin":id] as [String : Any]
+        do {
+            let opt = try HTTP.POST(url, parameters: params)
+            opt?.run { response in
+                if let error = response.error {
+                    DispatchQueue.main.sync(execute: {
+                        Toast.toast("You can't get this coin.")
+                    })
+                }
+                do {
+                    print (response.text!)
+                    let decoder: JSONLoader = JSONLoader(response.text!)
+                    let flag : Bool! = try decoder["result"].get() as Bool
+                    if (flag == true) {
+                        DispatchQueue.main.sync(execute: {
+                            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "LetPlayViewController")
+                            self.navigationController?.pushViewController(toViewController!, animated: true)
+                        })
+                    } else {
+                        DispatchQueue.main.sync(execute: {
+                            Toast.toast("You can't get this coin.")
+                        })
+                    }
+                } catch {
+                    DispatchQueue.main.sync(execute: {
+                        Toast.toast("You can't get this coin.")
+                    })
+                }
+            }
+        } catch let error {
+            DispatchQueue.main.sync(execute: {
+                Toast.toast("You can't get this coin.")
+            })
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -110,7 +181,7 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
                 Common.Coordinate = location.physical.coordinate
                 self.get_around_coins()
             case .failure: break
-                
+
             }
         }
     }
@@ -136,7 +207,7 @@ class TippziGoMapViewController: UIViewController, GMSMapViewDelegate
             let marker = GMSMarker(position: position)
             marker.title = ""
             
-            marker.userData = i
+            marker.userData = self.locationInfo[i].id
             marker.map = googleMapView
             
             marker.icon = self.imageWithImage(image: UIImage(named: "img_tippzi_coin.png")!, scaledToSize: CGSize(width: 15, height: 15))

@@ -904,7 +904,7 @@ class CustomerBarDetailViewController: UIViewController, KolodaViewDelegate,  Ko
         do {
             let opt = try HTTP.POST(url, parameters: params)
 
-            self.view.isUserInteractionEnabled = false
+//            self.view.isUserInteractionEnabled = false
             
 
             //get from server
@@ -913,7 +913,7 @@ class CustomerBarDetailViewController: UIViewController, KolodaViewDelegate,  Ko
 
                     DispatchQueue.main.sync(execute: {
 
-                        self.view.isUserInteractionEnabled = true
+//                        self.view.isUserInteractionEnabled = true
                         
                         // MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
 

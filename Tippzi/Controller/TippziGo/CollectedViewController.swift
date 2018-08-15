@@ -26,6 +26,8 @@ class CollectedViewController: UIViewController {
         self.continueButton.setViewBorderStyle(cornerRadius: self.continueButton.frame.height / 2, borderWidth: 2, borderColor: UIColor.white)
         self.continueButton.backgroundColor = UIColor.white
         self.continueButton.titleLabel?.textColor = UIColor.black
+        
+        UserDefaults.standard.setValue(Date().timeIntervalSince1970, forKey: "CollectedTime")
     }
     
     @IBAction func walletAction(_ sender: Any) {
