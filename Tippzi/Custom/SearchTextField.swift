@@ -496,7 +496,7 @@ open class SearchTextField: UITextField {
     }
     
     // Clean filtered results
-    fileprivate func clearResults() {
+    func clearResults() {
         filteredResults.removeAll()
         tableView?.removeFromSuperview()
     }

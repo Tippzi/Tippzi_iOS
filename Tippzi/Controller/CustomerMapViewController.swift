@@ -92,6 +92,10 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
         searchTextField.leftView = paddingView1
         searchTextField.leftViewMode = UITextFieldViewMode.always
         
+        var searchTextFieldTheme = SearchTextFieldTheme.lightTheme()
+        searchTextFieldTheme.bgColor = UIColor.white
+        self.searchTextField.theme = searchTextFieldTheme
+        
         if Common.customerModel.wallets.count > 0 {
             
             for index in 0...Common.customerModel.wallets.count-1 {
@@ -131,6 +135,7 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
             wallet_countLabel.text = String(wallet_count)
         }
         searchTextField.delegate = self
+        searchTextField.text = Common.search_string
         
         let nibName = UINib(nibName: "CustomerBarCell", bundle:nil)
         self.viewPager.register(nibName, forCellWithReuseIdentifier: "cus_bar")
@@ -180,7 +185,6 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
             }
         }
         
-        searchTextField.text = Common.search_string
         if Common.category_name == "Nightlife" {
             if Common.search_switch_flag == 0 {
                 
@@ -215,6 +219,7 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                 btnSearchSwitch.setImage(UIImage(named: "ico_hair_search.jpg"), for: .normal)
             }
         } else {
+            Common.search_switch_flag = 1
             if Common.search_switch_flag == 0 {
                 searchTextField.attributedPlaceholder = NSAttributedString(string: "Search an area", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
                 btnSearchSwitch.setImage(UIImage(named: "ico_area.jpg"), for: .normal)
@@ -246,6 +251,7 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                     return
                 }
                 do {
+                    print(response.text!)
                     let decoder: JSONLoader = JSONLoader(response.text!)
                     guard let decoderArray = decoder.getOptionalArray() else {throw JSONError.wrongType}
                     for decoderT in decoderArray {
@@ -593,7 +599,7 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
     }
     
     @IBAction func BarDetail(_ sender: Any){
-        googleMapView.removeFromSuperview()
+//        googleMapView.removeFromSuperview()
         
         if locationInfo.count > 0 {
             for i in 0...locationInfo.count-1 {
@@ -610,19 +616,19 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
         
         Impression_Add() // Impression Api Call
         
-//        Common.search_string = ""
         Common.fromBarDetail_toMap_flag = false
         
         let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerBarDetailViewController")
+        self.navigationController?.pushViewController(toViewController!, animated: true)
         
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromRight
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
     }
     func changeremainLabel(_ flag: Bool) {
 //        self.remainLabel.isHidden = flag
@@ -797,46 +803,54 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                 Common.search_switch_flag = 0
             }
         } else {
-            Common.search_switch_flag = 1
-            btnSearchSwitch.isHidden = true
-            btnSearchSwitch.isEnabled = false
+//            Common.search_switch_flag = 1
+//            btnSearchSwitch.isHidden = true
+//            btnSearchSwitch.isEnabled = false
         }
     }
     
     @IBAction func SearchAction(_ sender: Any) {
-        
         Common.fromBarDetail_toMap_flag = false
         var search_string : String = ""
         search_string = self.searchTextField.text!
         
-        if search_string.isEmpty && search_flag == false {
-            
+        if search_string.isEmpty {
+            btnSearch.setImage(UIImage(named: "ico_search"), for: .normal)
             Common.search_string = search_string
             self.search_action(Common.search_string)
-        }
-        else if !search_string.isEmpty && search_flag == false {
-            
-            btnSearch.setImage(UIImage(named: "ico_close_search"), for: .normal)
-            Common.search_string = search_string.lowercased()
-            self.search_action(Common.search_string)
-            search_flag = true
-        }
-        else if !search_string.isEmpty && search_flag == true {
-            
-            btnSearch.setImage(UIImage(named: "ico_search"), for: .normal)
-            search_string = ""
-            self.searchTextField.text = ""
-            Common.search_string = search_string.lowercased()
-            self.search_action(Common.search_string)
             search_flag = false
+        } else {
+            if search_flag == false {
+                btnSearch.setImage(UIImage(named: "ico_close_search"), for: .normal)
+                Common.search_string = search_string
+                self.search_action(search_string.lowercased())
+                search_flag = true
+            } else {
+                btnSearch.setImage(UIImage(named: "ico_search"), for: .normal)
+                self.searchTextField.text = ""
+                Common.search_string = ""
+                self.search_action(Common.search_string)
+                search_flag = false
+            }
         }
+        
+        self.searchTextField.hideResultsList()
     }
         
-    func search_action(_ search_string : String) {
+    func search_action(_ value : String) {
+        var search_string = value
+        var location_string = ""
+        if Common.category_name != "Nightlife" && Common.category_name != "Health & Fitness" && Common.category_name != "Hair & Beauty" {
+            let searchStringArray = value.components(separatedBy: " in ")
+            if (searchStringArray.count >= 2) {
+                search_string = searchStringArray[0].lowercased()
+                location_string = searchStringArray[1].lowercased()
+            }
+        }
+        
         googleMapView.clear()
         categoryLabel.isHidden = true
         if search_string == "" {
-            
             locationInfo = [LocationModel]()
             
             //add multiple markers on mapview
@@ -857,7 +871,6 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                     googleMapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 180, right: 0)
                 }
 
-                
                 googleMapView.camera = camera
                 
                 locationInfo = [LocationModel]()
@@ -908,28 +921,16 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                         marker.zIndex = 1
                         
                         if Common.selectcategory[i].category_name == "Nightlife" {
-                            
                             selected_location_category_image = "ico_blue_location"
-                        }
-                        else if Common.selectcategory[i].category_name == "Health & Fitness" {
-                            
+                        } else if Common.selectcategory[i].category_name == "Health & Fitness" {
                             selected_location_category_image = "ico_yellow_icon"
-                            
-                        }
-                        else if Common.selectcategory[i].category_name == "Hair & Beauty" {
-                            
+                        } else if Common.selectcategory[i].category_name == "Hair & Beauty" {
                             selected_location_category_image = "ico_red_location"
-                            
-                        }
-                        else {
-                            
+                        } else {
                             selected_location_category_image = "ico_selected_location"
                         }
                         marker.icon = self.imageWithImage(image: UIImage(named: selected_location_category_image)!, scaledToSize: CGSize(width: Common.imageSize[0].width, height: Common.imageSize[0].height))
-
-                    }
-                    else {
-                        
+                    } else {
                         marker.icon = self.imageWithImage(image: UIImage(named: "ico_unselected_location")!, scaledToSize: CGSize(width: Common.imageSize[0].width / 2, height: Common.imageSize[0].height / 2))
                     }
                 }
@@ -939,11 +940,9 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                 self.viewPager.reloadData()
                 self.viewPager.setPage(Common.select_page_in, isAnimation: true)
             }
-            
         } else {
             searchlocationInfo = [LocationModel]()
             if Common.search_switch_flag == 0 { // Search an area
-                
                 if Common.fromBarDetail_toMap_flag == false {
                     Common.select_page_in = 0
                 }
@@ -963,28 +962,30 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
 
                     for i in 0 ..< Common.selectcategory.count {
                         var filterString = Common.selectcategory[i].address
-                        if filterString.lowercased().contains(search_string) {
-                            let latitude = Common.selectcategory[i].latitude
-                            let longitude = Common.selectcategory[i].longitude
-                            
-                            var barImage = Common.selectcategory[i].barImage
-                            var barTitle = Common.selectcategory[i].barTitle
-                            var music_type = Common.selectcategory[i].music_type
-                            var bar_id = Common.selectcategory[i].index_num
-                            var address = Common.selectcategory[i].address
-                            var service_name = Common.selectcategory[i].service_name
-                            
-                            var category_deal = [SelectCategoryDeal]()
-                            category_deal = Common.selectcategory[i].selectcategory_deal
-                            
-                            let coordinate0 = CLLocation(latitude: Common.Coordinate.latitude, longitude: Common.Coordinate.longitude)
-                            let coordinate1 = CLLocation(latitude: latitude, longitude: longitude)
-                            var distance = coordinate0.distance(from: coordinate1)
-                            if (minDistance < 0 || minDistance > distance) {
-                                self.searchlocationInfo.insert(LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name), at: 0)
-                            } else {
-                                self.searchlocationInfo += [LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name)]
-                            }
+                        if filterString.lowercased().contains(search_string) == false {
+                            continue
+                        }
+
+                        let latitude = Common.selectcategory[i].latitude
+                        let longitude = Common.selectcategory[i].longitude
+                        
+                        var barImage = Common.selectcategory[i].barImage
+                        var barTitle = Common.selectcategory[i].barTitle
+                        var music_type = Common.selectcategory[i].music_type
+                        var bar_id = Common.selectcategory[i].index_num
+                        var address = Common.selectcategory[i].address
+                        var service_name = Common.selectcategory[i].service_name
+                        
+                        var category_deal = [SelectCategoryDeal]()
+                        category_deal = Common.selectcategory[i].selectcategory_deal
+                        
+                        let coordinate0 = CLLocation(latitude: Common.Coordinate.latitude, longitude: Common.Coordinate.longitude)
+                        let coordinate1 = CLLocation(latitude: latitude, longitude: longitude)
+                        var distance = coordinate0.distance(from: coordinate1)
+                        if (minDistance < 0 || minDistance > distance) {
+                            self.searchlocationInfo.insert(LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name), at: 0)
+                        } else {
+                            self.searchlocationInfo += [LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name)]
                         }
                     }
 //                }
@@ -997,28 +998,31 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                 // dragon
                 searchlocationInfo = [LocationModel]()
                 for i in 0 ..< Common.selectcategory.count {
-                    var filterString = Common.selectcategory[i].barTitle
-                    var filterString1 = Common.selectcategory[i].service_name
-                    if filterString.lowercased().contains(search_string) || filterString1.lowercased().contains(search_string) {
-                        let lat = Common.selectcategory[i].latitude
-                        let long = Common.selectcategory[i].longitude
-                        var latitude = lat
-                        var longitude = long
+                    let filterString0 = Common.selectcategory[i].barTitle
+                    let filterString1 = Common.selectcategory[i].service_name
+                    let filterString2 = Common.selectcategory[i].address
+                    
+                    if filterString0.lowercased().contains(search_string) || filterString1.lowercased().contains(search_string) {
+                        if Common.category_name != "Nightlife" && Common.category_name != "Health & Fitness" && Common.category_name != "Hair & Beauty" && location_string != "" {
+                            if filterString2.lowercased().contains(location_string) == false {
+                                continue
+                            }
+                        }
                         
-                        var barImage = Common.selectcategory[i].barImage
-                        var barTitle = Common.selectcategory[i].barTitle
-                        var music_type = Common.selectcategory[i].music_type
-                        var bar_id = Common.selectcategory[i].index_num
-                        var address = Common.selectcategory[i].address
-                        var service_name = Common.selectcategory[i].service_name
+                        let latitude = Common.selectcategory[i].latitude
+                        let longitude = Common.selectcategory[i].longitude
+                        let barImage = Common.selectcategory[i].barImage
+                        let barTitle = Common.selectcategory[i].barTitle
+                        let music_type = Common.selectcategory[i].music_type
+                        let bar_id = Common.selectcategory[i].index_num
+                        let address = Common.selectcategory[i].address
+                        let service_name = Common.selectcategory[i].service_name
                         
                         var category_deal = [SelectCategoryDeal]()
                         category_deal = Common.selectcategory[i].selectcategory_deal
                         
                         searchlocationInfo += [LocationModel(index_num: Int(bar_id), latitude: latitude, longitude: longitude, selectcategory_deal: category_deal, barImage: barImage, barTitle: barTitle, music_type: music_type, category_name: Common.selectcategory[i].category_name, address: address, service_name:service_name)]
-                        
                     }
-                    
                 }
             }
             
@@ -1087,32 +1091,22 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                                 selected_location_category_image = "ico_yellow_icon"
                             }
                             else if Common.selectcategory[i].category_name == "Hair & Beauty" {
-                                
                                 selected_location_category_image = "ico_red_location"
-                                
                             }
                             else {
-                                
                                 selected_location_category_image = "ico_selected_location"
                             }
                         } else {
-                            
                             if locationInfo[i].category_name == "Nightlife" {
-                                
                                 selected_location_category_image = "ico_selected_location_category1"
                             }
                             else if locationInfo[i].category_name == "Health & Fitness" {
-                                
                                 selected_location_category_image = "ico_selected_location_category2"
-                                
                             }
                             else if locationInfo[i].category_name == "Hair & Beauty" {
-                                
                                 selected_location_category_image = "ico_selected_location_category3"
-                                
                             }
                             else {
-                                
                                 selected_location_category_image = "ico_selected_location"
                             }
                         }
@@ -1131,8 +1125,13 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
 //                if (Common.search_switch_flag == 0) {
 //                    return
 //                }
+                
+                btnSearch.setImage(UIImage(named: "ico_search"), for: .normal)
+                self.searchTextField.text = ""
+                Common.search_string = ""
+                search_flag = false
+                
                 MessageBoxViewController.showAlert(self, title: "Alert", message: "There is no data you required")
-                searchTextField.text = ""
                 googleMapView.clear()
                 
                 if Common.flagOfMapViewFromCategory == true {
@@ -1197,21 +1196,15 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
                             marker.zIndex = 1
                             
                             if Common.selectcategory[i].category_name == "Nightlife" {
-                                
                                 selected_location_category_image = "ico_selected_location_category1"
                             }
                             else if Common.selectcategory[i].category_name == "Health & Fitness" {
-                                
                                 selected_location_category_image = "ico_selected_location_category2"
-                                
                             }
                             else if Common.selectcategory[i].category_name == "Hair & Beauty" {
-                                
                                 selected_location_category_image = "ico_selected_location_category3"
-                                
                             }
                             else {
-                                
                                 selected_location_category_image = "ico_selected_location"
                             }
                             marker.icon = self.imageWithImage(image: UIImage(named: selected_location_category_image)!, scaledToSize: CGSize(width: Common.imageSize[0].width, height: Common.imageSize[0].height))
@@ -1233,37 +1226,26 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
     
     func Impression_Add()
     {
-        
         //up to server
         let url = Common.api_location + "add_impressions.php"
         let params = ["user_id": user_id,
                       "bar_id_list": barIdArray_impressions,
                       "engagement_list": barIdArray_engagement] as [String : Any]
-        
         do {
             let opt = try HTTP.POST(url, parameters: params)
-            
-            self.view.isUserInteractionEnabled = false
-            
+//            self.view.isUserInteractionEnabled = false
             
             //get from server
             opt?.run { response in
                 if let error = response.error {
-                    
                     DispatchQueue.main.sync(execute: {
-                        
-                        self.view.isUserInteractionEnabled = true
-                        
+//                        self.view.isUserInteractionEnabled = true
                         // MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
-                        
                         return
                     })
-                    
                 }
                 do {
-                    
                     Common.customerModel = try CustomerModel(JSONLoader(response.text!))
-                    
                 } catch {
                     // //Toast.toast("Json string error: \(error)")
                 }
@@ -1274,45 +1256,51 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
     }
     
     @IBAction func GotoWallet(_ sender: Any) {
-        googleMapView.removeFromSuperview()
+//        googleMapView.removeFromSuperview()
         Impression_Add() // Impression Api Call
         
-        Common.search_string = ""
         //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView")
+        let toViewController: AddWalletViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWalletView") as! AddWalletViewController
+        toViewController.isNavigationController = true
+        self.navigationController!.pushViewController(toViewController, animated: true)
         
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromRight
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
         
     }
     
     @IBAction func Select_CategoryAction(_ sender: Any) {
-        googleMapView.removeFromSuperview()
+//        googleMapView.removeFromSuperview()
         Common.select_page_in = 0
         Common.flagOfMapViewFromCategory = false
         Common.category_name = ""
-        Common.search_string = ""
         Common.search_switch_flag = 0
+        Common.search_string = ""
         
         Impression_Add() // Impression Api Call
         
-        //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
+        self.navigationController?.popViewController(animated: true)
         
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+        //transition effect
+//        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
+//
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromLeft
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
+//        self.dismiss(animated: true) {
+//
+//        }
     }
     
     // koloda part //////////////////////////////////////////
@@ -1335,7 +1323,7 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
     }
     // for card view tap action
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-       googleMapView.removeFromSuperview()
+//       googleMapView.removeFromSuperview()
         //        let superview = (sender as AnyObject).superview
         //        let cell = superview??.superview as? CustomerBarCell
         
@@ -1354,20 +1342,19 @@ class CustomerMapViewController: UIViewController, GMSMapViewDelegate, UICollect
         
         Impression_Add() // Impression Api Call
         
-//        Common.search_string = ""
         Common.fromBarDetail_toMap_flag = false
         
         let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerBarDetailViewController")
+        self.navigationController?.pushViewController(toViewController!, animated: true)
         
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
-        
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromRight
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
     }
     
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {

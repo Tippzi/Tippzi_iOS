@@ -555,16 +555,17 @@ class CustomerBarDetailViewController: UIViewController, KolodaViewDelegate,  Ko
         Common.fromBarDetail_toMap_flag = true
         Engagement_Add()
         
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
-        
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+        self.navigationController?.popViewController(animated: true)
+//        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+//
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromLeft
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
     }
     
     @objc func businessname_action(sender:UITapGestureRecognizer)
@@ -574,16 +575,18 @@ class CustomerBarDetailViewController: UIViewController, KolodaViewDelegate,  Ko
         Common.fromBarDetail_toMap_flag = true
         Engagement_Add()
         
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+        self.navigationController?.popViewController(animated: true)
         
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+//        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+//
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromLeft
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
     }
     
     func display_opentime(_ index_num : Int){
@@ -682,16 +685,21 @@ class CustomerBarDetailViewController: UIViewController, KolodaViewDelegate,  Ko
         
         Engagement_Add()
         
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+        self.navigationController?.popViewController(animated: true)
         
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+//        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromLeft
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
+        
+//        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true) {
+//        }
     }
     
     @IBAction func Goto_RouteView(_ sender: Any) {
@@ -905,26 +913,17 @@ class CustomerBarDetailViewController: UIViewController, KolodaViewDelegate,  Ko
             let opt = try HTTP.POST(url, parameters: params)
 
 //            self.view.isUserInteractionEnabled = false
-            
-
             //get from server
             opt?.run { response in
                 if let error = response.error {
-
                     DispatchQueue.main.sync(execute: {
-
 //                        self.view.isUserInteractionEnabled = true
-                        
                         // MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
-
                         return
                     })
-
                 }
                 do {
-
                     Common.customerModel = try CustomerModel(JSONLoader(response.text!))
-
                 } catch {
                     // //Toast.toast("Json string error: \(error)")
                 }

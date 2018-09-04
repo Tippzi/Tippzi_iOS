@@ -21,6 +21,7 @@ class AddWalletViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var coinCount: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    var isNavigationController = false
     
     var cell : CustomerDealItemViewCell? = nil
     let cellSpacingHeight: CGFloat = 10
@@ -239,22 +240,25 @@ class AddWalletViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func btnBackClick(_ sender: Any) {
-    
-        
         Common.check_wallet = false
         Common.from_claimdeal = false
         //transition effect
-        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+//        let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+        if self.isNavigationController == true {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true) {
+            }
+        }
         
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
-
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromLeft
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
     }
     
 }

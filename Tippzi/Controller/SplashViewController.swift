@@ -525,12 +525,10 @@ class SplashViewController: UIViewController {
                 })
                 
                 if let error = response.error {
-                    
                     DispatchQueue.main.sync(execute: {
                         MessageBoxViewController.showAlert(self, title: "Error", message: "Server connection is failed")
                         return
                     })
-                    
                 }
                 do {
                     Common.customerModel = try CustomerModel(JSONLoader(response.text!))

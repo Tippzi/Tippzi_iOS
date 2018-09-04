@@ -235,17 +235,18 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
             timer.invalidate()
             
             //transition effect
-            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
+            self.navigationController?.popViewController(animated: true)
+//            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
             
-            let transition = CATransition()
-            transition.type = kCATransitionFromBottom
-            transition.subtype = kCATransitionFromBottom
-            //transition.duration = 0.2
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.popover
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
+//            let transition = CATransition()
+//            transition.type = kCATransitionFromBottom
+//            transition.subtype = kCATransitionFromBottom
+//            //transition.duration = 0.2
+//            view.window!.layer.add(transition, forKey: kCATransition)
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.popover
+//            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//            self.present(toViewController!, animated: true, completion:nil)
             
         }
         else {
@@ -262,15 +263,16 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
             timer.invalidate()
             
             let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
+            self.navigationController?.pushViewController(toViewController!, animated: true)
             
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            //transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
+//            let transition = CATransition()
+//            transition.type = kCATransitionPush
+//            transition.subtype = kCATransitionFromRight
+//            //transition.duration = 0.5
+//            view.window!.layer.add(transition, forKey: kCATransition)
+//            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//            self.present(toViewController!, animated: true, completion:nil)
             
         }
         

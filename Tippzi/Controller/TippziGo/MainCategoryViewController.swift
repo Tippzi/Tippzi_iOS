@@ -31,6 +31,7 @@ class MainCategoryViewController: UIViewController {
         GPPSignIn.sharedInstance().signOut()
         //transition effect
         let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "SigninView")
+//        self.navigationController?.setViewControllers([toViewController], animated: true)
         
         let transition = CATransition()
         transition.type = kCATransitionPush
@@ -102,17 +103,17 @@ class MainCategoryViewController: UIViewController {
             self.view.isUserInteractionEnabled = true
             
             //transition effect
-            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
-            
-            let transition = CATransition()
-            transition.type = kCATransitionFromBottom
-            transition.subtype = kCATransitionFromBottom
-            //transition.duration = 0.2
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.popover
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
+//            let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainCategoryViewController")
+//            
+//            let transition = CATransition()
+//            transition.type = kCATransitionFromBottom
+//            transition.subtype = kCATransitionFromBottom
+//            //transition.duration = 0.2
+//            view.window!.layer.add(transition, forKey: kCATransition)
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.popover
+//            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//            self.present(toViewController!, animated: true, completion:nil)
             
         }
         else {
@@ -125,31 +126,30 @@ class MainCategoryViewController: UIViewController {
             self.view.isUserInteractionEnabled = true
             
             let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomerMap")
-            
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            //transition.duration = 0.5
-            view.window!.layer.add(transition, forKey: kCATransition)
-            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            self.present(toViewController!, animated: true, completion:nil)
-            
+            self.navigationController?.pushViewController(toViewController!, animated: true)
+//            let transition = CATransition()
+//            transition.type = kCATransitionPush
+//            transition.subtype = kCATransitionFromRight
+//            //transition.duration = 0.5
+//            view.window!.layer.add(transition, forKey: kCATransition)
+//            toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//            toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//            self.present(toViewController!, animated: true, completion:nil)
         }
     }
     @IBAction func dealCategoryAction(_ sender: Any) {
         return
         
         let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesView")
-        
-        let transition = CATransition()
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.duration = 0.5
-        view.window!.layer.add(transition, forKey: kCATransition)
-        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        self.present(toViewController!, animated: true, completion:nil)
+        self.navigationController?.pushViewController(toViewController!, animated: true)
+//        let transition = CATransition()
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromRight
+//        transition.duration = 0.5
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        toViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        toViewController?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//        self.present(toViewController!, animated: true, completion:nil)
     }
     @IBAction func tippziGoAction(_ sender: Any) {
         let toViewController = self.storyboard?.instantiateViewController(withIdentifier: "TakeBreakViewController")
